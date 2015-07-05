@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{923FEA4A-15AD-44EA-B549-4D80D7C8CF34}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XFAForms.FormEngine</RootNamespace>
+    <AssemblyName>XFAForms.FormEngine</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FormEngine.cs" />
+    <Compile Include="Installers\XFAFormsFormEngineInstaller.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
+      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Name>XFAForms.BaseDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
+      <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
+      <Name>XFAForms.ConfigDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionDataDOM.Interfaces.csproj">
+      <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
+      <Name>XFAForms.ConnectionDataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionSetDOM.Interfaces\XFAForms.ConnectionSetDOM.Interfaces.csproj">
+      <Project>{45a9e5dc-ea36-4b40-b21f-4cc5e02779fa}</Project>
+      <Name>XFAForms.ConnectionSetDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDescriptionDOM.Interfaces\XFAForms.DataDescriptionDOM.Interfaces.csproj">
+      <Project>{104bb466-8420-4599-8b97-f791efc82163}</Project>
+      <Name>XFAForms.DataDescriptionDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDOM.Interfaces\XFAForms.DataDOM.Interfaces.csproj">
+      <Project>{eef71c0c-3626-443b-b35d-73c060ecd72a}</Project>
+      <Name>XFAForms.DataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormDOM.Interfaces\XFAForms.FormDOM.Interfaces.csproj">
+      <Project>{4a4ee402-00ba-4fc5-b7e1-3ed7a87d45cf}</Project>
+      <Name>XFAForms.FormDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormProcessor.Interfaces\XFAForms.FormProcessor.Interfaces.csproj">
+      <Project>{2d79adc0-ff2f-47ce-b151-a364d96ab07c}</Project>
+      <Name>XFAForms.FormProcessor.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
+      <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
+      <Name>XFAForms.TemplateDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XMLDataDom.Interfaces\XFAForms.XMLDataDOM.Interfaces.csproj">
+      <Project>{1c751771-15c6-4eb7-8626-dbd3e48908fa}</Project>
+      <Name>XFAForms.XMLDataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFALayoutDOM.Interfaces\XFAForms.LayoutDOM.Interfaces.csproj">
+      <Project>{d7960677-cc60-4a03-ae00-10550178a6c4}</Project>
+      <Name>XFAForms.LayoutDOM.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
