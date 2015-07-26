@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.ConfigDOM.Interfaces;
 using XFAForms.ConnectionDataDOM.Interfaces;
@@ -44,9 +46,22 @@ namespace XFAForms.FormProcessor
             _xmlDataDom = xmlDataDom;
         }
 
-        public void ProcessForm()
+        public Byte[] ProcessForm(XDocument formData, XDocument form)
         {
-            _logger.Debug("Form processed!");
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            _logger.Debug("Begin ProcessForm...");
+
+            _xmlDataDom.Initialize(formData);
+
+            _templateDom.Initialize(form);
+
+            _logger.DebugFormat("End ProcessForm, [{0} ms]", stopwatch.ElapsedMilliseconds);
+
+            return new byte[32];
+
         }
     }
 }

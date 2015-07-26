@@ -28,15 +28,17 @@ namespace XFAForms.Web.Controllers
         public String Test()
         {
 
-            _formEngine.Initialize();
-
             return DateTime.Now.ToLongDateString();
 
         }
 
         [HttpPost]
-        public HttpResponseMessage ProcessForms(JobRequest requestJob)
+        public HttpResponseMessage ProcessForms(JobRequest jobRequest)
         {
+
+            _formEngine.Initialize(jobRequest);
+
+            _formEngine.ProcessRequests();
 
             JobResponse jobResponse = new JobResponse()
             {

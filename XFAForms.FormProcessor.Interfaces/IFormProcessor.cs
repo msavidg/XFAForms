@@ -1,7 +1,10 @@
-﻿namespace XFAForms.FormProcessor.Interfaces
+﻿using System;
+using System.Xml.Linq;
+
+namespace XFAForms.FormProcessor.Interfaces
 {
     public interface IFormProcessor
     {
-        void ProcessForm();
+        Byte[] ProcessForm(XDocument formData, XDocument form);
     }
 }

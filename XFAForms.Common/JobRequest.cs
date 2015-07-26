@@ -17,12 +17,12 @@ namespace XFAForms.Common
         public String Data { get; set; }
 
         [ProtoMember(2)]
-        public List<String> Forms { get; set; }
+        public List<XMLDataPacket> Forms { get; set; }
 
         public JobRequest()
         {
             this.Data = null;
-            this.Forms = new List<string>();
+            this.Forms = new List<XMLDataPacket>();
         }
     }
 }

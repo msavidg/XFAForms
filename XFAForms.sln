@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.Web", "XFAForms.Web\XFAForms.Web.csproj", "{D42C9951-18B9-4E5B-AA4B-3D3BF941E730}"
 EndProject
@@ -105,6 +105,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormEngine", "FormEngine", "{9F96A8FB-08EA-4B29-A879-DD063E789A0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.Common", "XFAForms.Common\XFAForms.Common.csproj", "{5FA1FDE4-5108-46C5-B3F5-B11C56EA5873}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.Console", "XFAForms.Console\XFAForms.Console.csproj", "{32CBEE98-3197-43DC-8155-4E8523A12836}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -216,6 +218,10 @@ Global
 		{5FA1FDE4-5108-46C5-B3F5-B11C56EA5873}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FA1FDE4-5108-46C5-B3F5-B11C56EA5873}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FA1FDE4-5108-46C5-B3F5-B11C56EA5873}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32CBEE98-3197-43DC-8155-4E8523A12836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32CBEE98-3197-43DC-8155-4E8523A12836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32CBEE98-3197-43DC-8155-4E8523A12836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32CBEE98-3197-43DC-8155-4E8523A12836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

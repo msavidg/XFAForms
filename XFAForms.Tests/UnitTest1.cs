@@ -45,9 +45,12 @@ namespace XFAForms.Tests
             JobRequest jobRequest = new JobRequest()
             {
                 Data = XDocument.Load(@"\\eniac\FormsLibrary$\ECP\DataSchemas\Account.xml").ToString(),
-                Forms = new List<string>()
+                Forms = new List<XMLDataPacket>()
                 {
-                    "ECP BOR Letter (4 13).XDP"
+                    new XMLDataPacket(){
+                        Id = Guid.NewGuid(),
+                    Filename = @"\\eniac\formslibrary$\ecp\Documents\ECP BOR Letter (4 13).xdp"
+                    }
                 }
             };
 
@@ -124,9 +127,13 @@ namespace XFAForms.Tests
             var value = new JobRequest()
             {
                 Data = XDocument.Load(@"\\eniac\FormsLibrary$\ECP\DataSchemas\Account.xml").ToString(),
-                Forms = new List<string>()
+                Forms = new List<XMLDataPacket>()
                 {
-                    "ECP BOR Letter (4 13).XDP"
+                    new XMLDataPacket()
+                    {
+                        Id=Guid.NewGuid(),
+                        Filename="ECP BOR Letter (4 13).XDP"
+                    }
                 }
             };
 
