@@ -34,6 +34,7 @@ namespace XFAForms.FormProcessor
 
         public FormProcessor(ILogger logger, IConfigDOM configDom, IConnectionDataDOM connectionDataDom, IConnectionSetDOM connectionSetDom, IDataDescriptionDOM dataDescriptionDom, IFormDOM formDom, ILayoutDOM layoutDom, ITemplateDOM templateDom, IXFADataDOM xfaDataDom, IXMLDataDOM xmlDataDom)
         {
+
             _logger = logger;
             _configDom = configDom;
             _connectionDataDom = connectionDataDom;
@@ -44,6 +45,7 @@ namespace XFAForms.FormProcessor
             _templateDom = templateDom;
             _xfaDataDom = xfaDataDom;
             _xmlDataDom = xmlDataDom;
+
         }
 
         public Byte[] ProcessForm(XDocument formData, XDocument form)
