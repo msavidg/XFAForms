@@ -39,5 +39,15 @@ namespace XFAForms.TemplateDOM
             this._form = form;
 
         }
+
+        public void ResolveExternalReferences()
+        {
+
+            foreach (var r in _form.Descendants().Where(e => e.HasAttributes && e.Attribute("usehref") != null))
+            {
+                var n = r.Name.LocalName;
+            }
+
+        }
     }
 }

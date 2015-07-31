@@ -4,6 +4,7 @@ namespace XFAForms.XMLDataDOM.Interfaces
 {
     public interface IXMLDataDOM
     {
+
         void Initialize(XDocument xml);
 
     }

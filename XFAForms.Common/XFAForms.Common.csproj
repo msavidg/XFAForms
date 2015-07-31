@@ -64,10 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="JobResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JobRequest.cs" />
-    <Compile Include="XMLDataPacket.cs" />
+    <Compile Include="XDPFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

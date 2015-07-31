@@ -6,6 +6,7 @@ namespace XFAForms.TemplateDOM.Interfaces
     {
 
         void Initialize(XDocument form);
+        void ResolveExternalReferences();
 
     }
 }

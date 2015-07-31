@@ -42,12 +42,12 @@ namespace XFAForms.FormEngine
 
             XDocument formData = XDocument.Parse(_jobRequest.Data);
 
-            foreach (XMLDataPacket xdp in _jobRequest.Forms)
+            foreach (XDPFile xdp in _jobRequest.Forms)
             {
 
                 XDocument form = XDocument.Load(xdp.Filename);
 
-                _formProcessor.ProcessForm(formData, form);
+                xdp.Document = _formProcessor.ProcessForm(formData, form);
 
             }
         }

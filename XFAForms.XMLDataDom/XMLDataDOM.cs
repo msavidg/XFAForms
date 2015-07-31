@@ -21,7 +21,7 @@ namespace XFAForms.XMLDataDOM
     {
         private readonly ILogger _logger;
 
-        //private XDocument xml;
+        private XDocument _xml;
 
         public XMLDataDOM(ILogger logger)
             : base(logger)
@@ -33,6 +33,8 @@ namespace XFAForms.XMLDataDOM
         {
 
             _logger.Debug("Initialize!");
+
+            _xml = xml;
 
         }
     }

@@ -17,25 +17,26 @@ namespace XFAForms.Web.Controllers
 
         public FormsController(Castle.Core.Logging.ILogger logger, FormEngine.FormEngine formEngine)
         {
+
             _logger = logger;
+
             _formEngine = formEngine;
+
         }
 
         [HttpPost]
         public HttpResponseMessage ProcessForms(JobRequest jobRequest)
         {
 
+            _logger.Debug("Begin ProcessForms");
+
             _formEngine.Initialize(jobRequest);
 
             _formEngine.ProcessRequests();
 
-            JobResponse jobResponse = new JobResponse()
-            {
-                Forms = new List<string>() { "Hello.xdp" }
-            };
-
             MemoryStream memoryStream = new MemoryStream();
-            Serializer.Serialize(memoryStream, jobResponse);
+
+            Serializer.Serialize(memoryStream, jobRequest);
 
             HttpResponseMessage response = new HttpResponseMessage()
             {
@@ -50,6 +51,8 @@ namespace XFAForms.Web.Controllers
             };
 
             response.Content.Headers.ContentType = new MediaTypeHeaderValue("application/x-protobuf");
+
+            _logger.Debug("End ProcessForms");
 
             return response;
 
