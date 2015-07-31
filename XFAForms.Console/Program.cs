@@ -81,12 +81,12 @@ namespace XFAForms.Console
             _elements = new List<XElement> { doc.Root };
         }
 
-        protected DynamicXml(XElement element)
+        public DynamicXml(XElement element)
         {
             _elements = new List<XElement> { element };
         }
 
-        protected DynamicXml(IEnumerable<XElement> elements)
+        public DynamicXml(IEnumerable<XElement> elements)
         {
             _elements = new List<XElement>(elements);
         }
@@ -137,9 +137,6 @@ namespace XFAForms.Console
 
                 }
             }
-
-            return base.TryGetMember(binder, out result);
-
         }
 
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)

@@ -12,6 +12,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using ProtoBuf;
 using XFAForms.Common;
+using XFAForms.Web.Controllers;
 
 namespace XFAForms.Tests
 {
@@ -21,16 +22,6 @@ namespace XFAForms.Tests
 
         private const string Site = "";
         private const string Server = "localhost";
-
-        public void WebTestMethod1()
-        {
-            using (WebClient webClient = new WebClient())
-            {
-                String s = webClient.DownloadString(@"http://" + Server + "/XFAForms.Web/api/Forms/Test");
-                String r = "Hello, world!";
-                Assert.AreEqual(r, JsonConvert.DeserializeObject(s));
-            }
-        }
 
         [TestMethod]
         public void ProcessForms()
@@ -54,7 +45,7 @@ namespace XFAForms.Tests
                 }
             };
 
-            using (var writer = new StreamWriter((webRequest.GetRequestStream())))
+            using (var writer = new StreamWriter(webRequest.GetRequestStream()))
             {
 
                 Serializer.Serialize(writer.BaseStream, jobRequest);
@@ -97,55 +88,5 @@ namespace XFAForms.Tests
             }
         }
 
-        string Serialize<T>(MediaTypeFormatter formatter, T value)
-        {
-            // Create a dummy HTTP Content.
-            Stream stream = new MemoryStream();
-            var content = new StreamContent(stream);
-            /// Serialize the object.
-            formatter.WriteToStreamAsync(typeof(T), value, stream, content, null).Wait();
-            // Read the serialized string.
-            stream.Position = 0;
-            return content.ReadAsStringAsync().Result;
-        }
-
-        T Deserialize<T>(MediaTypeFormatter formatter, string str) where T : class
-        {
-            // Write the serialized string to a memory stream.
-            Stream stream = new MemoryStream();
-            StreamWriter writer = new StreamWriter(stream);
-            writer.Write(str);
-            writer.Flush();
-            stream.Position = 0;
-            // Deserialize to an object of type T
-            return formatter.ReadFromStreamAsync(typeof(T), stream, null, null).Result as T;
-        }
-
-        // Example of use
-        public void TestSerialization()
-        {
-            var value = new JobRequest()
-            {
-                Data = XDocument.Load(@"\\eniac\FormsLibrary$\ECP\DataSchemas\Account.xml").ToString(),
-                Forms = new List<XMLDataPacket>()
-                {
-                    new XMLDataPacket()
-                    {
-                        Id=Guid.NewGuid(),
-                        Filename="ECP BOR Letter (4 13).XDP"
-                    }
-                }
-            };
-
-
-            var xml = new XmlMediaTypeFormatter();
-            string str = Serialize(xml, value);
-
-            //var json = new JsonMediaTypeFormatter();
-            //str = Serialize(json, value);
-
-            // Round trip
-            JobRequest person2 = Deserialize<JobRequest>(xml, str);
-        }
     }
 }
