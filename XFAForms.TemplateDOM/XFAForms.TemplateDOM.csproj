@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XFAForms.TemplateDOM</RootNamespace>
     <AssemblyName>XFAForms.TemplateDOM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,10 +77,17 @@
       <Project>{7e755f71-2bde-49d3-9743-4fd87bdf8bc1}</Project>
       <Name>XFAForms.BaseDOM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
+      <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
+      <Name>XFAForms.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
       <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
       <Name>XFAForms.TemplateDOM.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

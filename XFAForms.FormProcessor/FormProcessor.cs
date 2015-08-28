@@ -52,6 +52,7 @@ namespace XFAForms.FormProcessor
         {
 
             Stopwatch stopwatch = new Stopwatch();
+
             stopwatch.Start();
 
             _logger.Debug("Begin ProcessForm...");
