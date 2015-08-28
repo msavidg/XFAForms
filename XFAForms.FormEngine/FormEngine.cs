@@ -8,7 +8,6 @@ using Castle.Core.Logging;
 using Castle.Windsor;
 using XFAForms.Common;
 using XFAForms.FormProcessor.Interfaces;
-using XFAForms.TemplateDOM.Interfaces;
 
 namespace XFAForms.FormEngine
 {
