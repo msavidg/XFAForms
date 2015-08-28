@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
+using XFAForms.Common;
 using XFAForms.TemplateDOM.Interfaces;
 
 namespace XFAForms.TemplateDOM
@@ -21,11 +22,7 @@ namespace XFAForms.TemplateDOM
             get { return _form.Descendants().First(d => d.Name.LocalName == "template"); }
         }
 
-        protected XNamespace TemplateNamespace
-        {
-            //TODO: A valid xdp should always have this, but do we need to worry about invalid ?
-            get { return Template.Attribute("xmlns").Value; }
-        }
+        protected XNamespace TemplateNamespace => Template.Name.Namespace;
 
         public TemplateDOM(ILogger logger)
             : base(logger)
@@ -38,14 +35,18 @@ namespace XFAForms.TemplateDOM
 
             this._form = form;
 
+            ResolveExternalReferences();
+
         }
 
         public void ResolveExternalReferences()
         {
 
-            foreach (var r in _form.Descendants().Where(e => e.HasAttributes && e.Attribute("usehref") != null))
+            foreach (var r in Template.Descendants().Where(e => e.HasAttributes && e.Attribute("usehref") != null))
             {
-                var n = r.Name.LocalName;
+
+                string filename = XFAUtilities.hrefSplitter(r.Attribute("usehref").Value);
+
             }
 
         }
