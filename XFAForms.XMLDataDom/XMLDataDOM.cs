@@ -13,7 +13,7 @@ using System.Xml.Linq;
 using System.Xml.Serialization;
 using Castle.Core.Logging;
 using Microsoft.CSharp;
-using XFAForms.XMLDataDOM.Interfaces;
+using XFAForms.XMLDataDom.Interfaces;
 
 namespace XFAForms.XMLDataDOM
 {

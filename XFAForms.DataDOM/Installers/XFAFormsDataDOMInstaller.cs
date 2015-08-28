@@ -1,7 +1,7 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using XFAForms.DataDOM.Interfaces;
+using XFAForms.XFADataDOM.Interfaces;
 
 namespace XFAForms.XFADataDOM.Installers
 {

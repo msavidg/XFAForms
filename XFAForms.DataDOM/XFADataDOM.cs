@@ -1,5 +1,5 @@
 ﻿using Castle.Core.Logging;
-using XFAForms.DataDOM.Interfaces;
+using XFAForms.XFADataDOM.Interfaces;
 
 namespace XFAForms.XFADataDOM
 {

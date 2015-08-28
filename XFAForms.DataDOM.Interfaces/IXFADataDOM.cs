@@ -1,4 +1,4 @@
-﻿namespace XFAForms.DataDOM.Interfaces
+﻿namespace XFAForms.XFADataDOM.Interfaces
 {
     public interface IXFADataDOM
     {

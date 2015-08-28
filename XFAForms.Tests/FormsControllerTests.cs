@@ -98,7 +98,7 @@ namespace XFAForms.Tests
             ConnectionSetDOM.ConnectionSetDOM connectionSetDom = new ConnectionSetDOM.ConnectionSetDOM(consoleLogger);
             DataDescriptionDOM.DataDescriptionDOM dataDescriptionDom = new DataDescriptionDOM.DataDescriptionDOM(consoleLogger);
             FormDOM.FormDOM formDom = new FormDOM.FormDOM(consoleLogger);
-            XFALayoutDOM.LayoutDOM layoutDom = new XFALayoutDOM.LayoutDOM(consoleLogger);
+            LayoutDOM.LayoutDOM layoutDom = new LayoutDOM.LayoutDOM(consoleLogger);
             TemplateDOM.TemplateDOM templateDom = new TemplateDOM.TemplateDOM(consoleLogger);
             XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger);
             XMLDataDOM.XMLDataDOM xmlDataDom = new XMLDataDOM.XMLDataDOM(consoleLogger);

@@ -1,4 +1,4 @@
-﻿namespace XFALayoutDOM.Interfaces
+﻿namespace XFAForms.LayoutDOM.Interfaces
 {
     public interface ILayoutDOM
     {
