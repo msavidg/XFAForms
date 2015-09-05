@@ -67,6 +67,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
+      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Name>XFAForms.BaseDOM.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY $(TargetFileName) $(SolutionDir)XFAForms.Web\bin\</PostBuildEvent>

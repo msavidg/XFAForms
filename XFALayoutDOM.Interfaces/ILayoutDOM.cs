@@ -1,7 +1,9 @@
-﻿namespace XFAForms.LayoutDOM.Interfaces
+﻿using XFAForms.BaseDOM.Interfaces;
+
+namespace XFAForms.LayoutDOM.Interfaces
 {
-    public interface ILayoutDOM
+    public interface ILayoutDOM : IBaseDOM
     {
-         
+
     }
 }

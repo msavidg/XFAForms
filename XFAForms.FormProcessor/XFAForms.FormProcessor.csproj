@@ -65,6 +65,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
+      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Name>XFAForms.BaseDOM.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
       <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
       <Name>XFAForms.ConfigDOM.Interfaces</Name>

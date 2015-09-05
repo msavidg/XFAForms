@@ -57,9 +57,25 @@ namespace XFAForms.FormProcessor
 
             _logger.Debug("Begin ProcessForm...");
 
+            //TODO: Not sure the order in which to call these...
+
+            _configDom.Initialize(form);
+
+            _connectionSetDom.Initialize(form);
+
+            _connectionDataDom.Initialize(form);
+
             _xmlDataDom.Initialize(formData);
 
+            _xfaDataDom.Initialize(form);
+
             _templateDom.Initialize(form);
+
+            _dataDescriptionDom.Initialize(form);
+
+            _formDom.Initialize(form);
+
+            _layoutDom.Initialize(form);
 
             _logger.DebugFormat("End ProcessForm, [{0} ms]", stopwatch.ElapsedMilliseconds);
 

@@ -15,11 +15,19 @@ namespace XFAForms.TemplateDOM
         private readonly ILogger _logger;
 
         private XDocument _form;
+        private XElement _template;
 
         protected XElement Template
         {
             //TODO: One and only one template?
-            get { return _form.Descendants().First(d => d.Name.LocalName == "template"); }
+            get
+            {
+                if (_template == null)
+                {
+                    _template = _form.Descendants().First(d => d.Name.LocalName == "template");
+                }
+                return _template;
+            }
         }
 
         protected XNamespace TemplateNamespace => Template.Name.Namespace;
@@ -30,8 +38,10 @@ namespace XFAForms.TemplateDOM
             _logger = logger;
         }
 
-        public void Initialize(XDocument form)
+        public override void Initialize(XDocument form)
         {
+
+            _logger.Debug("TemplateDOM Initialize!");
 
             this._form = form;
 

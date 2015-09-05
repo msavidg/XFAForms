@@ -1,11 +1,10 @@
 ﻿using System.Xml.Linq;
+using XFAForms.BaseDOM.Interfaces;
 
 namespace XFAForms.XMLDataDom.Interfaces
 {
-    public interface IXMLDataDOM
+    public interface IXMLDataDOM : IBaseDOM
     {
-
-        void Initialize(XDocument xml);
 
     }
 }

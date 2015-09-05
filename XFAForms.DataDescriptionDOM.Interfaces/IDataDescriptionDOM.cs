@@ -1,7 +1,9 @@
-﻿namespace XFAForms.DataDescriptionDOM.Interfaces
+﻿using XFAForms.BaseDOM.Interfaces;
+
+namespace XFAForms.DataDescriptionDOM.Interfaces
 {
-    public interface IDataDescriptionDOM
+    public interface IDataDescriptionDOM : IBaseDOM
     {
-         
+
     }
 }

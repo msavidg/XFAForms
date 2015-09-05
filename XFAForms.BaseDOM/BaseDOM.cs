@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.BaseDOM.Interfaces;
 
@@ -17,9 +18,9 @@ namespace XFAForms.BaseDOM
             _logger = logger;
         }
 
-        public void Initialize()
+        public virtual void Initialize(XDocument form)
         {
-            _logger.Debug("We are here!");
+            _logger.Debug("BaseDOM Initialize!");
         }
     }
 }
