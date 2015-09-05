@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
+using XFAForms.Common;
 using XFAForms.ConfigDOM.Interfaces;
 using XFAForms.ConnectionDataDOM.Interfaces;
 using XFAForms.ConnectionSetDOM.Interfaces;
@@ -21,6 +22,10 @@ namespace XFAForms.FormProcessor
 {
     public class FormProcessor : IFormProcessor
     {
+
+        private static XDocument _form;
+        private static XDPFile _xdp;
+
         private readonly ILogger _logger;
         private readonly IConfigDOM _configDom;
         private readonly IConnectionDataDOM _connectionDataDom;
@@ -48,8 +53,11 @@ namespace XFAForms.FormProcessor
 
         }
 
-        public Byte[] ProcessForm(XDocument formData, XDocument form)
+        public Byte[] ProcessForm(XDPFile xdp, XDocument formData, XDocument form)
         {
+
+            _xdp = xdp;
+            _form = form;
 
             Stopwatch stopwatch = new Stopwatch();
 
@@ -59,23 +67,23 @@ namespace XFAForms.FormProcessor
 
             //TODO: Not sure the order in which to call these...
 
-            _configDom.Initialize(form);
+            _configDom.Initialize(_form);
 
-            _connectionSetDom.Initialize(form);
+            _connectionSetDom.Initialize(_form);
 
-            _connectionDataDom.Initialize(form);
+            _connectionDataDom.Initialize(_form);
 
             _xmlDataDom.Initialize(formData);
 
-            _xfaDataDom.Initialize(form);
+            _xfaDataDom.Initialize(_form);
 
-            _templateDom.Initialize(form);
+            _templateDom.Initialize(_xdp, _form);
 
-            _dataDescriptionDom.Initialize(form);
+            _dataDescriptionDom.Initialize(_form);
 
-            _formDom.Initialize(form);
+            _formDom.Initialize(_form);
 
-            _layoutDom.Initialize(form);
+            _layoutDom.Initialize(_form);
 
             _logger.DebugFormat("End ProcessForm, [{0} ms]", stopwatch.ElapsedMilliseconds);
 

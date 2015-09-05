@@ -29,7 +29,7 @@ namespace XFAForms.XMLDataDOM
             _logger = logger;
         }
 
-        public void Initialize(XDocument form)
+        public override void Initialize(XDocument form)
         {
 
             _logger.Debug("XMLDataDOM Initialize!");

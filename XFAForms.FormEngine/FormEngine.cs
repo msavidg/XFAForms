@@ -46,7 +46,9 @@ namespace XFAForms.FormEngine
 
                 XDocument form = XDocument.Load(xdp.Filename);
 
-                xdp.Document = _formProcessor.ProcessForm(formData, form);
+                _logger.DebugFormat("Processing {0}", xdp.Filename);
+
+                xdp.Document = _formProcessor.ProcessForm(xdp, formData, form);
 
             }
         }

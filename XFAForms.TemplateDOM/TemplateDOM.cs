@@ -14,19 +14,15 @@ namespace XFAForms.TemplateDOM
     {
         private readonly ILogger _logger;
 
+        private XDPFile _xdp;
         private XDocument _form;
-        private XElement _template;
 
         protected XElement Template
         {
             //TODO: One and only one template?
             get
             {
-                if (_template == null)
-                {
-                    _template = _form.Descendants().First(d => d.Name.LocalName == "template");
-                }
-                return _template;
+                return _form.Descendants().First(d => d.Name.LocalName == "template");
             }
         }
 
@@ -38,12 +34,13 @@ namespace XFAForms.TemplateDOM
             _logger = logger;
         }
 
-        public override void Initialize(XDocument form)
+        public void Initialize(XDPFile xdp, XDocument form)
         {
 
             _logger.Debug("TemplateDOM Initialize!");
 
-            this._form = form;
+            _xdp = xdp;
+            _form = form;
 
             ResolveExternalReferences();
 
@@ -52,13 +49,50 @@ namespace XFAForms.TemplateDOM
         public void ResolveExternalReferences()
         {
 
-            foreach (var r in Template.Descendants().Where(e => e.HasAttributes && e.Attribute("usehref") != null))
+            _logger.Debug("ResolveExternalReferences");
+
+            try
             {
 
-                string filename = XFAUtilities.hrefSplitter(r.Attribute("usehref").Value);
+                foreach (var r in Template.Descendants().Where(e => e.HasAttributes && e.Attribute("usehref") != null))
+                {
+
+                    String href = r.Attribute("usehref").Value;
+
+                    _logger.DebugFormat("href = {0}", href);
+
+                    string hrefFilename = XFAUtilities.FullPathFromRelativeFilename(_xdp.Filename, XFAUtilities.HrefSplitter(href));
+
+                    XDocument hrefElement = XDocument.Load(hrefFilename);
+
+                    string subFormName = XFAUtilities.GetHrefSubFormName(href);
+
+                    _logger.DebugFormat("subform = {0}", subFormName);
+
+                    XElement x = hrefElement.Descendants().FirstOrDefault(e => e.Name.LocalName == "subform" && e.HasAttributes && e.Attribute("name") != null && e.Attribute("name").Value == subFormName);
+
+                    if (x == null)
+                    {
+
+                        _logger.DebugFormat("script = {0}", subFormName);
+
+                        x = hrefElement.Descendants().FirstOrDefault(e => e.Name.LocalName == "script" && e.HasAttributes && e.Attribute("name") != null && e.Attribute("name").Value == subFormName);
+
+                    }
+                }
+            }
+            catch (System.IO.FileNotFoundException ex)
+            {
+
+                _logger.Debug(ex.Message);
 
             }
+            catch (System.NotSupportedException ex)
+            {
 
+                _logger.Debug(ex.Message);
+
+            }
         }
     }
 }

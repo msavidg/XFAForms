@@ -69,6 +69,10 @@
       <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
       <Name>XFAForms.BaseDOM.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
+      <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
+      <Name>XFAForms.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
       <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
       <Name>XFAForms.ConfigDOM.Interfaces</Name>
