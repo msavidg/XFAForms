@@ -28,11 +28,18 @@ namespace XFAForms.Common
 
         }
 
-        public static string FullPathFromRelativeFilename(string containerFilePath, string releativeFilePath)
+        public static string FullPath(string containerXDPPath, string hrefFilePath)
         {
             string s = String.Empty;
 
-            s = Path.GetDirectoryName(containerFilePath) + Path.DirectorySeparatorChar + releativeFilePath;
+            if (Path.IsPathRooted(hrefFilePath))
+            {
+                s = hrefFilePath;
+            }
+            else
+            {
+                s = Path.GetDirectoryName(containerXDPPath) + Path.DirectorySeparatorChar + hrefFilePath;
+            }
 
             return s;
         }
