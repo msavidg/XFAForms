@@ -1,31 +1,28 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace XFAForms.TemplateDOM.DataTypes
+namespace XFAForms.XFAObject.Interfaces.DataTypes
 {
-    public sealed class DynamicTemplateXml : DynamicObject, IEnumerable
+    public sealed class DynamicDataXml : DynamicObject, IEnumerable
     {
 
         private readonly List<XElement> _elements;
 
-        public DynamicTemplateXml(string text)
+        public DynamicDataXml(string text)
         {
             var doc = XDocument.Parse(text);
             _elements = new List<XElement> { doc.Root };
         }
 
-        public DynamicTemplateXml(XElement element)
+        public DynamicDataXml(XElement element)
         {
             _elements = new List<XElement> { element };
         }
 
-        public DynamicTemplateXml(IEnumerable<XElement> elements)
+        public DynamicDataXml(IEnumerable<XElement> elements)
         {
             _elements = new List<XElement>(elements);
         }
@@ -45,7 +42,7 @@ namespace XFAForms.TemplateDOM.DataTypes
             else if (binder.Name == "nodes")
             {
 
-                result = new DynamicTemplateNodes(_elements.Elements().Select(e => new DynamicTemplateXml(e)).ToList());
+                result = new DynamicDataNodes(_elements.Elements().Select(e => new DynamicDataXml(e)).ToList());
                 return true;
 
             }
@@ -71,7 +68,7 @@ namespace XFAForms.TemplateDOM.DataTypes
                         return false;
                     }
 
-                    result = new DynamicTemplateXml(items);
+                    result = new DynamicDataXml(items);
                     return true;
 
                 }
@@ -81,7 +78,7 @@ namespace XFAForms.TemplateDOM.DataTypes
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
         {
             int ndx = (int)indexes[0];
-            result = new DynamicTemplateXml(_elements[ndx]);
+            result = new DynamicDataXml(_elements[ndx]);
 
             return true;
         }
@@ -89,7 +86,7 @@ namespace XFAForms.TemplateDOM.DataTypes
         public IEnumerator GetEnumerator()
         {
             foreach (var element in _elements)
-                yield return new DynamicTemplateXml(element);
+                yield return new DynamicDataXml(element);
         }
 
         public override IEnumerable<string> GetDynamicMemberNames()

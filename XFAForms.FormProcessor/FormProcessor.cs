@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
+using Microsoft.ClearScript.V8;
 using XFAForms.Common;
 using XFAForms.ConfigDOM.Interfaces;
 using XFAForms.ConnectionDataDOM.Interfaces;
@@ -16,6 +17,7 @@ using XFAForms.FormProcessor.Interfaces;
 using XFAForms.LayoutDOM.Interfaces;
 using XFAForms.TemplateDOM.Interfaces;
 using XFAForms.XFADataDOM.Interfaces;
+using XFAForms.XFAObject.Interfaces;
 using XFAForms.XMLDataDom.Interfaces;
 
 namespace XFAForms.FormProcessor
@@ -28,6 +30,7 @@ namespace XFAForms.FormProcessor
         private static XDPFile _xdp;
 
         private readonly ILogger _logger;
+        private readonly IXFAObject _xfaObject;
         private readonly IConfigDOM _configDom;
         private readonly IConnectionDataDOM _connectionDataDom;
         private readonly IConnectionSetDOM _connectionSetDom;
@@ -38,10 +41,11 @@ namespace XFAForms.FormProcessor
         private readonly IXFADataDOM _xfaDataDom;
         private readonly IXMLDataDOM _xmlDataDom;
 
-        public FormProcessor(ILogger logger, IConfigDOM configDom, IConnectionDataDOM connectionDataDom, IConnectionSetDOM connectionSetDom, IDataDescriptionDOM dataDescriptionDom, IFormDOM formDom, ILayoutDOM layoutDom, ITemplateDOM templateDom, IXFADataDOM xfaDataDom, IXMLDataDOM xmlDataDom)
+        public FormProcessor(ILogger logger, V8ScriptEngine engine, IXFAObject xfaObject, IConfigDOM configDom, IConnectionDataDOM connectionDataDom, IConnectionSetDOM connectionSetDom, IDataDescriptionDOM dataDescriptionDom, IFormDOM formDom, ILayoutDOM layoutDom, ITemplateDOM templateDom, IXFADataDOM xfaDataDom, IXMLDataDOM xmlDataDom)
         {
 
             _logger = logger;
+            _xfaObject = xfaObject;
             _configDom = configDom;
             _connectionDataDom = connectionDataDom;
             _connectionSetDom = connectionSetDom;
@@ -83,15 +87,40 @@ namespace XFAForms.FormProcessor
 
             _xmlDataDom.Initialize(_formData);
 
-            _xfaDataDom.Initialize(_formData);
+            //xfa.record
+            _xfaDataDom.Initialize(_xfaObject, _formData);
 
-            _templateDom.Initialize(_xdp, _form);
+            //xfa.template
+            _templateDom.Initialize(_xfaObject, _xdp, _form);
 
             _dataDescriptionDom.Initialize(_form);
 
+            //xfa.form
             _formDom.Initialize(_form);
 
             _layoutDom.Initialize(_form);
+
+            using (V8ScriptEngine engine = new V8ScriptEngine())
+            {
+
+                engine.AddHostObject("xfa", _xfaObject);
+
+                var a1 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.length");
+                var a2 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0)");
+                var a3 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value");
+                var a4 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionDetailECP.OptionDetailECPId.value");
+
+                if (_xdp.Filename.Contains("ECP Binder Cancel Letter"))
+                {
+
+                    var x = _xfaObject.template.GetDynamicMemberNames();
+
+                    var b1 = engine.Evaluate("xfa.template.AccountECP");
+                    var b2 = engine.Evaluate("xfa.template.AccountECP.Page1");
+
+                }
+
+            }
 
             _logger.DebugFormat("End ProcessForm, [{0} ms]", stopwatch.ElapsedMilliseconds);
 

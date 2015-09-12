@@ -16,6 +16,7 @@ namespace XFAForms.FormProcessor.Installers
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
 
+            container.Install(FromAssembly.Named("XFAForms.XFAObject"));
             container.Install(FromAssembly.Named("XFAForms.BaseDOM"));
             container.Install(FromAssembly.Named("XFAForms.ConfigDOM"));
             container.Install(FromAssembly.Named("XFAForms.ConnectionDataDOM"));

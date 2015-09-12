@@ -47,6 +47,9 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ClearScript">
+      <HintPath>..\Libraries\ClearScript\ClearScript.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.6\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
@@ -120,6 +123,10 @@
     <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
       <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
       <Name>XFAForms.TemplateDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004b2d94-a375-4d82-90a6-e254a3bd0c98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.XMLDataDom.Interfaces\XFAForms.XMLDataDOM.Interfaces.csproj">
       <Project>{1c751771-15c6-4eb7-8626-dbd3e48908fa}</Project>

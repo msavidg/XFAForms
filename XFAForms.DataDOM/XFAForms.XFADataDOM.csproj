@@ -47,9 +47,6 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ClearScript">
-      <HintPath>..\Libraries\ClearScript\ClearScript.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
@@ -63,8 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\DynamicDataNodes.cs" />
-    <Compile Include="DataTypes\DynamicDataXml.cs" />
     <Compile Include="XFADataDOM.cs" />
     <Compile Include="Installers\XFAFormsDataDOMInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,7 +81,12 @@
       <Project>{eef71c0c-3626-443b-b35d-73c060ecd72a}</Project>
       <Name>XFAForms.XFADataDOM.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004b2d94-a375-4d82-90a6-e254a3bd0c98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY $(TargetFileName) $(SolutionDir)XFAForms.Web\bin\</PostBuildEvent>

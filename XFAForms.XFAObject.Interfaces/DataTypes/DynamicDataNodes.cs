@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 
-namespace XFAForms.XFADataDOM.DataTypes
+namespace XFAForms.XFAObject.Interfaces.DataTypes
 {
     public sealed class DynamicDataNodes : DynamicObject, IEnumerable
     {

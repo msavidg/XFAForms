@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.Common;
-using XFAForms.TemplateDOM.DataTypes;
 using XFAForms.TemplateDOM.Interfaces;
+using XFAForms.XFAObject.Interfaces;
+using XFAForms.XFAObject.Interfaces.DataTypes;
 
 namespace XFAForms.TemplateDOM
 {
@@ -19,6 +20,7 @@ namespace XFAForms.TemplateDOM
 
         private XDPFile _xdp;
         private XDocument _form;
+        private XElement _formResolved;
 
         protected XElement Template
         {
@@ -37,7 +39,7 @@ namespace XFAForms.TemplateDOM
             _logger = logger;
         }
 
-        public void Initialize(XDPFile xdp, XDocument form)
+        public void Initialize(IXFAObject xfaObject, XDPFile xdp, XDocument form)
         {
 
             _logger.Debug("TemplateDOM Initialize!");
@@ -46,6 +48,8 @@ namespace XFAForms.TemplateDOM
             _form = form;
 
             ResolveExternalReferences();
+
+            xfaObject.template = new DynamicTemplateXml(_formResolved.ToString());
 
         }
 
@@ -57,7 +61,7 @@ namespace XFAForms.TemplateDOM
             try
             {
 
-                XElement xdpWithExternalReferencesResolved = ResolveExternalReferences(Template);
+                _formResolved = ResolveExternalReferences(Template);
 
                 _xdp.HasError = false;
                 _xdp.ErrorMessage = "No error.";

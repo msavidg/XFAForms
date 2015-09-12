@@ -72,6 +72,10 @@
       <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
       <Name>XFAForms.BaseDOM.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004B2D94-A375-4D82-90A6-E254A3BD0C98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

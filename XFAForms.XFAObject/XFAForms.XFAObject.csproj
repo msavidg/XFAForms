@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{26CDE3BC-67D7-4A41-BD18-D32635A18B82}</ProjectGuid>
+    <ProjectGuid>{220BEF6E-9051-4ECC-8085-5FB9A39977FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XFAForms.TemplateDOM.Interfaces</RootNamespace>
-    <AssemblyName>XFAForms.TemplateDOM.Interfaces</AssemblyName>
+    <RootNamespace>XFAForms.XFAObject</RootNamespace>
+    <AssemblyName>XFAForms.XFAObject</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,39 +46,28 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITemplateDOM.cs" />
+    <Compile Include="Installers\XFAObjectInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XFAObject.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
-      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
-      <Name>XFAForms.BaseDOM.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
-      <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
-      <Name>XFAForms.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
-      <Project>{004B2D94-A375-4D82-90A6-E254A3BD0C98}</Project>
+      <Project>{004b2d94-a375-4d82-90a6-e254a3bd0c98}</Project>
       <Name>XFAForms.XFAObject.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

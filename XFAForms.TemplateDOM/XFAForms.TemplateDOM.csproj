@@ -60,8 +60,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\DynamicTemplateNodes.cs" />
-    <Compile Include="DataTypes\DynamicTemplateXml.cs" />
     <Compile Include="Elements\ArcElement.cs" />
     <Compile Include="Elements\AreaElement.cs" />
     <Compile Include="Elements\AssistElement.cs" />
@@ -144,6 +142,10 @@
     <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
       <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
       <Name>XFAForms.TemplateDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004B2D94-A375-4D82-90A6-E254A3BD0C98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
