@@ -59,10 +59,6 @@ namespace XFAForms.FormProcessor
 
             _formData = formData;
 
-            _xmlDataDom.Initialize(_formData);
-
-            _xfaDataDom.Initialize(_formData);
-
         }
 
         public Byte[] ProcessForm(XDPFile xdp, XDocument form)
@@ -84,6 +80,10 @@ namespace XFAForms.FormProcessor
             _connectionSetDom.Initialize(_form);
 
             _connectionDataDom.Initialize(_form);
+
+            _xmlDataDom.Initialize(_formData);
+
+            _xfaDataDom.Initialize(_formData);
 
             _templateDom.Initialize(_xdp, _form);
 

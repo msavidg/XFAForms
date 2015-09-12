@@ -668,8 +668,7 @@ namespace XFAForms.Tests
             FormDOM.FormDOM formDom = new FormDOM.FormDOM(consoleLogger);
             LayoutDOM.LayoutDOM layoutDom = new LayoutDOM.LayoutDOM(consoleLogger);
             TemplateDOM.TemplateDOM templateDom = new TemplateDOM.TemplateDOM(consoleLogger);
-            //XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger, new V8ScriptEngine());
-            XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger);
+            XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger, new V8ScriptEngine());
             XMLDataDOM.XMLDataDOM xmlDataDom = new XMLDataDOM.XMLDataDOM(consoleLogger);
 
             FormProcessor.FormProcessor formProcessor = new FormProcessor.FormProcessor(consoleLogger, configDom, connectionDataDom, connectionSetDom, dataDescriptionDom, formDom, layoutDom, templateDom, xfaDataDom, xmlDataDom);
