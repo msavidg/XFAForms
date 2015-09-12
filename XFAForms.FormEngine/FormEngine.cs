@@ -41,14 +41,29 @@ namespace XFAForms.FormEngine
 
             XDocument formData = XDocument.Parse(_jobRequest.Data);
 
+            _formProcessor.Initialize(formData);
+
             foreach (XDPFile xdp in _jobRequest.Forms)
             {
+                try
+                {
 
-                XDocument form = XDocument.Load(xdp.Filename);
+                    XDocument form = XDocument.Load(xdp.Filename);
 
-                _logger.DebugFormat("Processing {0}", xdp.Filename);
+                    _logger.DebugFormat("Processing {0}", xdp.Filename);
 
-                xdp.Document = _formProcessor.ProcessForm(xdp, formData, form);
+                    xdp.Document = _formProcessor.ProcessForm(xdp, form);
+
+                }
+                catch (System.Exception ex)
+                {
+
+                    xdp.HasError = true;
+                    xdp.ErrorMessage = ex.Message;
+
+                    _logger.Error(ex.Message);
+
+                }
 
             }
         }

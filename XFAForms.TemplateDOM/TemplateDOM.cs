@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.Common;
+using XFAForms.TemplateDOM.DataTypes;
 using XFAForms.TemplateDOM.Interfaces;
 
 namespace XFAForms.TemplateDOM
@@ -58,15 +59,15 @@ namespace XFAForms.TemplateDOM
 
                 XElement xdpWithExternalReferencesResolved = ResolveExternalReferences(Template);
 
-            }
-            catch (System.IO.FileNotFoundException ex)
-            {
-
-                _logger.Debug(ex.Message);
+                _xdp.HasError = false;
+                _xdp.ErrorMessage = "No error.";
 
             }
-            catch (System.IO.IOException ex)
+            catch (SystemException ex)
             {
+
+                _xdp.HasError = true;
+                _xdp.ErrorMessage = ex.Message;
 
                 _logger.Debug(ex.Message);
 

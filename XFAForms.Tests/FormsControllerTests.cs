@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
@@ -9,6 +10,7 @@ using System.Security.Policy;
 using System.Web.Configuration;
 using System.Xml.Linq;
 using Castle.Core.Logging;
+using Microsoft.ClearScript.V8;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using ProtoBuf;
@@ -174,13 +176,6 @@ namespace XFAForms.Tests
                 Id = Guid.NewGuid(),
                 Filename =
                     @"\\" + Server + @"\formslibrary$\ecp\Documents\NAV-ML-TERR DISCLOSURE - Environmental (1 15).xdp"
-            },
-            new XDPFile()
-            {
-                Id = Guid.NewGuid(),
-                Filename =
-                    @"\\" + Server +
-                    @"\formslibrary$\ecp\Documents\NAV-ML-TERR DISCLOSURE – Environmental  (1 15) (1 15).xdp"
             },
             new XDPFile()
             {
@@ -673,6 +668,7 @@ namespace XFAForms.Tests
             FormDOM.FormDOM formDom = new FormDOM.FormDOM(consoleLogger);
             LayoutDOM.LayoutDOM layoutDom = new LayoutDOM.LayoutDOM(consoleLogger);
             TemplateDOM.TemplateDOM templateDom = new TemplateDOM.TemplateDOM(consoleLogger);
+            //XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger, new V8ScriptEngine());
             XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger);
             XMLDataDOM.XMLDataDOM xmlDataDom = new XMLDataDOM.XMLDataDOM(consoleLogger);
 
@@ -697,6 +693,9 @@ namespace XFAForms.Tests
                 MemoryStream memoryStream = new MemoryStream(task.Result);
 
                 JobRequest jobResponse = Serializer.Deserialize<JobRequest>(memoryStream);
+
+                var errors = jobResponse.Forms.Where(f => f.HasError == true).ToList();
+
             }
         }
     }

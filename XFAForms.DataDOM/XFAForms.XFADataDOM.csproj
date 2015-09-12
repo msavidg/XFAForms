@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataTypes\DynamicDataNodes.cs" />
+    <Compile Include="DataTypes\DynamicDataXml.cs" />
     <Compile Include="XFADataDOM.cs" />
     <Compile Include="Installers\XFAFormsDataDOMInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

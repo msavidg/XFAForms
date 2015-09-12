@@ -6,6 +6,8 @@ namespace XFAForms.FormProcessor.Interfaces
 {
     public interface IFormProcessor
     {
-        Byte[] ProcessForm(XDPFile xdp, XDocument formData, XDocument form);
+        void Initialize(XDocument formData);
+
+        Byte[] ProcessForm(XDPFile xdp, XDocument form);
     }
 }

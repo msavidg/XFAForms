@@ -20,10 +20,11 @@ using XFAForms.XMLDataDom.Interfaces;
 
 namespace XFAForms.FormProcessor
 {
-    public class FormProcessor : IFormProcessor
+    public class FormProcessor : IFormProcessor, IDisposable
     {
 
         private static XDocument _form;
+        private static XDocument _formData;
         private static XDPFile _xdp;
 
         private readonly ILogger _logger;
@@ -53,7 +54,18 @@ namespace XFAForms.FormProcessor
 
         }
 
-        public Byte[] ProcessForm(XDPFile xdp, XDocument formData, XDocument form)
+        public void Initialize(XDocument formData)
+        {
+
+            _formData = formData;
+
+            _xmlDataDom.Initialize(_formData);
+
+            _xfaDataDom.Initialize(_formData);
+
+        }
+
+        public Byte[] ProcessForm(XDPFile xdp, XDocument form)
         {
 
             _xdp = xdp;
@@ -73,10 +85,6 @@ namespace XFAForms.FormProcessor
 
             _connectionDataDom.Initialize(_form);
 
-            _xmlDataDom.Initialize(formData);
-
-            _xfaDataDom.Initialize(_form);
-
             _templateDom.Initialize(_xdp, _form);
 
             _dataDescriptionDom.Initialize(_form);
@@ -89,6 +97,11 @@ namespace XFAForms.FormProcessor
 
             return new byte[32];
 
+        }
+
+        public void Dispose()
+        {
+            // Cleanup goes here
         }
     }
 }

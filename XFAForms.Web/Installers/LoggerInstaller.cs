@@ -10,8 +10,11 @@ namespace XFAForms.Web.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
+
             XmlConfigurator.Configure();
+
             container.AddFacility<LoggingFacility>(f => f.UseLog4Net());
+
         }
     }
 }
