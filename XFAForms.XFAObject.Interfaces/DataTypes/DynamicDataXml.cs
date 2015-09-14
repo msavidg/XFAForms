@@ -75,6 +75,14 @@ namespace XFAForms.XFAObject.Interfaces.DataTypes
             }
         }
 
+        public override bool TrySetMember(SetMemberBinder binder, object value)
+        {
+            //return base.TrySetMember(binder, value);
+            _elements[0].Value = value.ToString();
+            return true;
+
+        }
+
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
         {
             int ndx = (int)indexes[0];

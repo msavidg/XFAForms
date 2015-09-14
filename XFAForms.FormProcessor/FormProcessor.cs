@@ -30,6 +30,7 @@ namespace XFAForms.FormProcessor
         private static XDPFile _xdp;
 
         private readonly ILogger _logger;
+        private readonly V8ScriptEngine _engine;
         private readonly IXFAObject _xfaObject;
         private readonly IConfigDOM _configDom;
         private readonly IConnectionDataDOM _connectionDataDom;
@@ -45,6 +46,7 @@ namespace XFAForms.FormProcessor
         {
 
             _logger = logger;
+            _engine = engine;
             _xfaObject = xfaObject;
             _configDom = configDom;
             _connectionDataDom = connectionDataDom;
@@ -100,25 +102,22 @@ namespace XFAForms.FormProcessor
 
             _layoutDom.Initialize(_form);
 
-            using (V8ScriptEngine engine = new V8ScriptEngine())
+            _engine.AddHostObject("xfa", _xfaObject);
+
+            var a1 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.length");
+            var a2 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0)");
+            var a3 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value");
+            _engine.Execute("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value=99");
+            var a5 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value");
+            var a6 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionDetailECP.OptionDetailECPId.value");
+
+            if (_xdp.Filename.Contains("ECP Binder Cancel Letter"))
             {
 
-                engine.AddHostObject("xfa", _xfaObject);
+                var x = _xfaObject.template.GetDynamicMemberNames();
 
-                var a1 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.length");
-                var a2 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0)");
-                var a3 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value");
-                var a4 = engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionDetailECP.OptionDetailECPId.value");
-
-                if (_xdp.Filename.Contains("ECP Binder Cancel Letter"))
-                {
-
-                    var x = _xfaObject.template.GetDynamicMemberNames();
-
-                    var b1 = engine.Evaluate("xfa.template.AccountECP");
-                    var b2 = engine.Evaluate("xfa.template.AccountECP.Page1");
-
-                }
+                var b1 = _engine.Evaluate("xfa.template.AccountECP");
+                var b2 = _engine.Evaluate("xfa.template.AccountECP.Page1");
 
             }
 

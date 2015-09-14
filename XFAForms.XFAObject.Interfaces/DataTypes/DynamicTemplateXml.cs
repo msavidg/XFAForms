@@ -32,18 +32,32 @@ namespace XFAForms.XFAObject.Interfaces.DataTypes
 
             result = null;
 
-            //var items = _elements.Elements(XName.Get(binder.Name));
-            var items = _elements[0].Elements().Where(e => e.HasAttributes && e.Attribute("name").Value.Equals(binder.Name));
+            // Since template DOM is sparse we need to create a list for each element
+            // If we have it in the XML, return the value of the attribute
+            // If we don't have it in the XML, create it, add it to Attributes collection
+            var attr = _elements[0].Attribute(XName.Get(binder.Name));
 
-            if (items == null || items.Count() == 0)
+            if (attr != null)
             {
-                return false;
+
+                result = attr;
+                return true;
+
             }
+            else
+            {
 
-            result = new DynamicTemplateXml(items);
+                var items = _elements[0].Elements().Where(e => e.HasAttributes && e.Attribute("name").Value.Equals(binder.Name));
 
-            return true;
+                if (items == null || items.Count() == 0)
+                {
+                    return false;
+                }
 
+                result = new DynamicTemplateXml(items);
+
+                return true;
+            }
         }
 
         public override bool TryGetIndex(GetIndexBinder binder, object[] indexes, out object result)
@@ -62,6 +76,7 @@ namespace XFAForms.XFAObject.Interfaces.DataTypes
 
         public override IEnumerable<string> GetDynamicMemberNames()
         {
+            // Since template DOM is sparse we need to create a list for each element
             foreach (var element in _elements.Elements().Where(e => e.HasAttributes && e.Attribute("name") != null))
                 yield return element.Attribute("name").Value;
         }

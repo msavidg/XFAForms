@@ -672,7 +672,9 @@ namespace XFAForms.Tests
             XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger);
             XMLDataDOM.XMLDataDOM xmlDataDom = new XMLDataDOM.XMLDataDOM(consoleLogger);
 
-            FormProcessor.FormProcessor formProcessor = new FormProcessor.FormProcessor(consoleLogger, new V8ScriptEngine(), xfaObject, configDom, connectionDataDom, connectionSetDom, dataDescriptionDom, formDom, layoutDom, templateDom, xfaDataDom, xmlDataDom);
+            V8ScriptEngine engine = new V8ScriptEngine();
+
+            FormProcessor.FormProcessor formProcessor = new FormProcessor.FormProcessor(consoleLogger, engine, xfaObject, configDom, connectionDataDom, connectionSetDom, dataDescriptionDom, formDom, layoutDom, templateDom, xfaDataDom, xmlDataDom);
 
             FormEngine.FormEngine formEngine = new FormEngine.FormEngine(consoleLogger, formProcessor);
 
@@ -697,6 +699,10 @@ namespace XFAForms.Tests
                 var errors = jobResponse.Forms.Where(f => f.HasError == true).ToList();
 
             }
+
+            engine.Dispose();
+            engine = null;
+
         }
     }
 }
