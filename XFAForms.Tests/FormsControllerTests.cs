@@ -610,7 +610,14 @@ namespace XFAForms.Tests
             JobRequest jobRequest = new JobRequest()
             {
                 Data = XDocument.Load(@"\\" + Server + @"\FormsLibrary$\ECP\DataSchemas\Account.xml").ToString(),
-                Forms = _forms
+                Forms = new List<XDPFile>()
+                {
+                        new XDPFile()
+                        {
+                            Id = Guid.NewGuid(),
+                            Filename = @"\\" + Server + @"\formslibrary$\xxx\Documents\Sample_001.xdp"
+                        }
+                }
             };
 
             using (var writer = new StreamWriter(webRequest.GetRequestStream()))
@@ -683,7 +690,15 @@ namespace XFAForms.Tests
             JobRequest jobRequest = new JobRequest()
             {
                 Data = XDocument.Load(@"\\" + Server + @"\FormsLibrary$\ECP\DataSchemas\Account.xml").ToString(),
-                Forms = _forms
+                Forms = new List<XDPFile>()
+                        {
+                            new XDPFile()
+                            {
+                                Id = Guid.NewGuid(),
+                                Filename = @"\\" + Server + @"\formslibrary$\xxx\Documents\Sample_001.xdp"
+                            }
+
+                        }
             };
 
             var task = formsController.ProcessForms(jobRequest).Content.ReadAsByteArrayAsync();

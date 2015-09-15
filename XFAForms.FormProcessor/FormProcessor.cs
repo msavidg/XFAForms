@@ -111,13 +111,13 @@ namespace XFAForms.FormProcessor
             var a5 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionId.value");
             var a6 = _engine.Evaluate("xfa.record.CurrentRisk.Options.nodes.item(0).OptionDetailECP.OptionDetailECPId.value");
 
-            if (_xdp.Filename.Contains("ECP Binder Cancel Letter"))
+            if (_xdp.Filename.Contains("Sample_001"))
             {
 
                 var x = _xfaObject.template.GetDynamicMemberNames();
 
-                var b1 = _engine.Evaluate("xfa.template.AccountECP");
-                var b2 = _engine.Evaluate("xfa.template.AccountECP.Page1");
+                var b1 = _engine.Evaluate("xfa.template.form1.minH");
+                var b2 = _engine.Evaluate("xfa.template.form1.layout");
 
             }
 
