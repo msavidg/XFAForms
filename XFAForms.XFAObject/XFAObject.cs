@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XFAForms.XFAObject.DynamicObjects;
 using XFAForms.XFAObject.Interfaces;
-using XFAForms.XFAObject.Interfaces.DataTypes;
 
 namespace XFAForms.XFAObject
 {
     public class XFAObject : IXFAObject
     {
 
-        public DynamicDataXml record { get; set; }
+        public DynamicObject record { get; set; }
 
-        public DynamicTemplateXml template { get; set; }
+        public DynamicObject template { get; set; }
 
     }
 }

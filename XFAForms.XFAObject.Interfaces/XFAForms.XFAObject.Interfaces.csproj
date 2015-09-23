@@ -56,16 +56,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataTypes\DynamicDataNodes.cs" />
-    <Compile Include="DataTypes\DynamicDataXml.cs" />
-    <Compile Include="DataTypes\DynamicTemplateNodes.cs" />
-    <Compile Include="DataTypes\DynamicTemplateXml.cs" />
     <Compile Include="IXFAObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>COPY $(TargetFileName) $(SolutionDir)XFAForms.Web\bin\</PostBuildEvent>

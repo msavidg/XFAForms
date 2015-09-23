@@ -1,10 +1,14 @@
-﻿using XFAForms.XFAObject.Interfaces.DataTypes;
+﻿
+using System.Dynamic;
 
 namespace XFAForms.XFAObject.Interfaces
 {
     public interface IXFAObject
     {
-        DynamicDataXml record { get; set; }
-        DynamicTemplateXml template { get; set; }
+
+        DynamicObject record { get; set; }
+
+        DynamicObject template { get; set; }
+
     }
 }

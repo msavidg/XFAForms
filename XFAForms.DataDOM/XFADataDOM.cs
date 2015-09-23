@@ -2,8 +2,8 @@
 using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.XFADataDOM.Interfaces;
+using XFAForms.XFAObject.DynamicObjects;
 using XFAForms.XFAObject.Interfaces;
-using XFAForms.XFAObject.Interfaces.DataTypes;
 
 namespace XFAForms.XFADataDOM
 {

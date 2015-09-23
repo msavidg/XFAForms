@@ -9,8 +9,8 @@ using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.Common;
 using XFAForms.TemplateDOM.Interfaces;
+using XFAForms.XFAObject.DynamicObjects;
 using XFAForms.XFAObject.Interfaces;
-using XFAForms.XFAObject.Interfaces.DataTypes;
 
 namespace XFAForms.TemplateDOM
 {
