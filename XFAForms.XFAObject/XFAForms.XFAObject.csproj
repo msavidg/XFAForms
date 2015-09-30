@@ -177,6 +177,11 @@
     <Compile Include="XFAElements\ValueElement.cs" />
     <Compile Include="Installers\XFAObjectInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XFAElements\XFAForms.Template.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>XFAForms.Template.tt</DependentUpon>
+    </Compile>
     <Compile Include="XFAElements\XFAProperty.cs" />
     <Compile Include="XFAElements\XFAPropertyValue.cs" />
     <Compile Include="XFAObject.cs" />
@@ -189,6 +194,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="XFAElements\RelaxNG\config.rng" />
+    <None Include="XFAElements\RelaxNG\connectionset.rng" />
+    <None Include="XFAElements\RelaxNG\data.rng" />
+    <None Include="XFAElements\RelaxNG\dataDescription.rng" />
+    <None Include="XFAElements\RelaxNG\localeset.rng" />
+    <None Include="XFAElements\RelaxNG\pdf.rng" />
+    <None Include="XFAElements\RelaxNG\sourceset.rng" />
+    <None Include="XFAElements\RelaxNG\stylesheet.rng" />
+    <None Include="XFAElements\RelaxNG\template.rng" />
+    <None Include="XFAElements\RelaxNG\xdp.rng" />
+    <None Include="XFAElements\RelaxNG\xfdf.rng" />
+    <None Include="XFAElements\RelaxNG\xmldsig-core-schema.rng" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="XFAElements\XFAForms.Template.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>XFAForms.Template.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
