@@ -36,7 +36,7 @@ namespace XFAForms.XFAObject.XFAElements
             }
         }
 
-		var className = xElement.Attribute("name").Value;
+		var className = char.ToUpper(xElement.Attribute("name").Value[0]) + xElement.Attribute("name").Value.Substring(1);
 #>
 	public sealed class <#= className #> : XFABaseElement
 	{
@@ -67,6 +67,18 @@ namespace XFAForms.XFAObject.XFAElements
 
 		public <#=  className #>()
 		{
+            this._properties.Add("circular",
+                new XFAProperty()
+                {
+                    Name = "circular",
+                    Type = EnumXFAPropertyType.Property,
+                    Values = new List<IXFAPropertyValue>()
+                    {
+                        new XFAPropertyValue() { IsDefault = true, Type = EnumXFAPropertyValueType.Numeric, Value = "0" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = "1" }
+                    }
+                }
+            );
 		}
 
 	}
