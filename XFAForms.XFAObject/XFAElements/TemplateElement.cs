@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace XFAForms.XFAObject.XFAElements
 {
-    public class TemplateElement : XFABaseElement
+
+    public partial class Template : XFABaseElement
     {
+
+        // <!--An element that describes a template. One such element exists for each template and all other elements described in this specification are descendants of the template element.-->
+
         private string _name = "template";
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
-        private EnumXFAElementType _type = EnumXFAElementType.Container;
-
+        private EnumXFAElementType _type = EnumXFAElementType.Content;
+        
         public new string Name
         {
             get { return _name; }
@@ -26,24 +30,18 @@ namespace XFAForms.XFAObject.XFAElements
             set { _type = value; }
         }
 
-        public TemplateElement()
+        public Template()
         {
-
-            this._properties.Add("name",
+            this._properties.Add("baseProfile",
                 new XFAProperty()
                 {
-                    Name = "name",
+                    Name = "baseProfile",
                     Type = EnumXFAPropertyType.Property,
                     Values = new List<IXFAPropertyValue>()
-                }
-            );
-
-            this._properties.Add("desc",
-                new XFAProperty()
-                {
-                    Name = "desc",
-                    Type = EnumXFAPropertyType.StructuredProperty,
-                    Values = new List<IXFAPropertyValue>()
+                    {
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"full" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"interactiveForms" }
+                    }
                 }
             );
 
@@ -55,16 +53,14 @@ namespace XFAForms.XFAObject.XFAElements
                     Values = new List<IXFAPropertyValue>()
                 }
             );
-
             this._properties.Add("subform",
                 new XFAProperty()
                 {
                     Name = "subform",
-                    Type = EnumXFAPropertyType.Child,
+                    Type = EnumXFAPropertyType.StructuredProperty,
                     Values = new List<IXFAPropertyValue>()
                 }
             );
-
         }
     }
 }

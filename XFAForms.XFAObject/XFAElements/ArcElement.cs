@@ -1,13 +1,17 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace XFAForms.XFAObject.XFAElements
 {
-    public class ArcElement : XFABaseElement
+
+    public partial class Arc : XFABaseElement
     {
+
+        // <!--A curve that can be used for describing either an arc or an ellipse.-->
+
         private string _name = "arc";
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
         private EnumXFAElementType _type = EnumXFAElementType.Content;
-
+        
         public new string Name
         {
             get { return _name; }
@@ -26,7 +30,7 @@ namespace XFAForms.XFAObject.XFAElements
             set { _type = value; }
         }
 
-        public ArcElement()
+        public Arc()
         {
             this._properties.Add("circular",
                 new XFAProperty()
@@ -35,8 +39,8 @@ namespace XFAForms.XFAObject.XFAElements
                     Type = EnumXFAPropertyType.Property,
                     Values = new List<IXFAPropertyValue>()
                     {
-                        new XFAPropertyValue() { IsDefault = true, Type = EnumXFAPropertyValueType.Numeric, Value = "0" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = "1" }
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"0" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"1" }
                     }
                 }
             );
@@ -48,61 +52,55 @@ namespace XFAForms.XFAObject.XFAElements
                     Type = EnumXFAPropertyType.Property,
                     Values = new List<IXFAPropertyValue>()
                     {
-                        new XFAPropertyValue() { IsDefault = true, Type = EnumXFAPropertyValueType.String, Value = "even" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.String, Value = "left" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.String, Value = "right" }
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"even" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"left" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"right" }
                     }
                 }
             );
 
+            // NCName
             this._properties.Add("id",
                 new XFAProperty()
                 {
                     Name = "id",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
+                    Type = EnumXFAPropertyType.Property
                 }
             );
 
-            this._properties.Add("name",
-                new XFAProperty()
-                {
-                    Name = "name",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
-                }
-            );
-
+            // angleDataType
             this._properties.Add("startAngle",
                 new XFAProperty()
                 {
                     Name = "startAngle",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
-                    {
-                        new XFAPropertyValue() {IsDefault = true,Type = EnumXFAPropertyValueType.Numeric, Value = "0"},
-                    }
+                    Type = EnumXFAPropertyType.Property
                 }
             );
 
+            // angleDataType
             this._properties.Add("sweepAngle",
                 new XFAProperty()
                 {
                     Name = "sweepAngle",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
-                    {
-                        new XFAPropertyValue() {IsDefault = true,Type = EnumXFAPropertyValueType.Numeric, Value = "360"},
-                    }
+                    Type = EnumXFAPropertyType.Property
                 }
             );
 
+            // string
             this._properties.Add("use",
                 new XFAProperty()
                 {
                     Name = "use",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // string
+            this._properties.Add("usehref",
+                new XFAProperty()
+                {
+                    Name = "usehref",
+                    Type = EnumXFAPropertyType.Property
                 }
             );
 
@@ -114,7 +112,6 @@ namespace XFAForms.XFAObject.XFAElements
                     Values = new List<IXFAPropertyValue>()
                 }
             );
-
             this._properties.Add("fill",
                 new XFAProperty()
                 {
@@ -123,7 +120,6 @@ namespace XFAForms.XFAObject.XFAElements
                     Values = new List<IXFAPropertyValue>()
                 }
             );
-
         }
     }
 }

@@ -1,12 +1,130 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace XFAForms.XFAObject.XFAElements
 {
-    public class HyphenationElement : XFABaseElement
+
+    public partial class Hyphenation : XFABaseElement
     {
+
+        // <!--An element that controls auto-hyphenation of text.-->
+
+        private string _name = "hyphenation";
+        private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
+        private EnumXFAElementType _type = EnumXFAElementType.Content;
+        
+        public new string Name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+
+        public new Dictionary<string, IXFAProperty> Properties
+        {
+            get { return _properties; }
+            set { _properties = value; }
+        }
+
+        public new EnumXFAElementType Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+
+        public Hyphenation()
+        {
+            this._properties.Add("excludeAllCaps",
+                new XFAProperty()
+                {
+                    Name = "excludeAllCaps",
+                    Type = EnumXFAPropertyType.Property,
+                    Values = new List<IXFAPropertyValue>()
+                    {
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"0" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"1" }
+                    }
+                }
+            );
+
+            this._properties.Add("excludeInitialCap",
+                new XFAProperty()
+                {
+                    Name = "excludeInitialCap",
+                    Type = EnumXFAPropertyType.Property,
+                    Values = new List<IXFAPropertyValue>()
+                    {
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"0" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"1" }
+                    }
+                }
+            );
+
+            this._properties.Add("hyphenate",
+                new XFAProperty()
+                {
+                    Name = "hyphenate",
+                    Type = EnumXFAPropertyType.Property,
+                    Values = new List<IXFAPropertyValue>()
+                    {
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"0" },
+                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"1" }
+                    }
+                }
+            );
+
+            // NCName
+            this._properties.Add("id",
+                new XFAProperty()
+                {
+                    Name = "id",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // integerDataType
+            this._properties.Add("pushCharacterCount",
+                new XFAProperty()
+                {
+                    Name = "pushCharacterCount",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // integerDataType
+            this._properties.Add("remainCharacterCount",
+                new XFAProperty()
+                {
+                    Name = "remainCharacterCount",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // string
+            this._properties.Add("use",
+                new XFAProperty()
+                {
+                    Name = "use",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // string
+            this._properties.Add("usehref",
+                new XFAProperty()
+                {
+                    Name = "usehref",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // integerDataType
+            this._properties.Add("wordCharacterCount",
+                new XFAProperty()
+                {
+                    Name = "wordCharacterCount",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+        }
     }
 }

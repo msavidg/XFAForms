@@ -3,12 +3,12 @@ using System.Collections.Generic;
 namespace XFAForms.XFAObject.XFAElements
 {
 
-    public partial class Pageset : XFABaseElement
+    public partial class Contentarea : XFABaseElement
     {
 
-        // <!--An element that describes a set of related page area objects.-->
+        // <!--An element that describes a region within a page area eligible for receiving content.-->
 
-        private string _name = "pageSet";
+        private string _name = "contentArea";
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
         private EnumXFAElementType _type = EnumXFAElementType.Content;
         
@@ -30,18 +30,14 @@ namespace XFAForms.XFAObject.XFAElements
             set { _type = value; }
         }
 
-        public Pageset()
+        public Contentarea()
         {
-            this._properties.Add("duplexImposition",
+            // measurementDataType
+            this._properties.Add("h",
                 new XFAProperty()
                 {
-                    Name = "duplexImposition",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
-                    {
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"longEdge" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"shortEdge" }
-                    }
+                    Name = "h",
+                    Type = EnumXFAPropertyType.Property
                 }
             );
 
@@ -60,20 +56,6 @@ namespace XFAForms.XFAObject.XFAElements
                 {
                     Name = "name",
                     Type = EnumXFAPropertyType.Property
-                }
-            );
-
-            this._properties.Add("relation",
-                new XFAProperty()
-                {
-                    Name = "relation",
-                    Type = EnumXFAPropertyType.Property,
-                    Values = new List<IXFAPropertyValue>()
-                    {
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"duplexPaginated" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"orderedOccurrence" },
-                        new XFAPropertyValue() { IsDefault = false, Type = EnumXFAPropertyValueType.Numeric, Value = @"simplexPaginated" }
-                    }
                 }
             );
 
@@ -104,34 +86,45 @@ namespace XFAForms.XFAObject.XFAElements
                 }
             );
 
+            // measurementDataType
+            this._properties.Add("w",
+                new XFAProperty()
+                {
+                    Name = "w",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // measurementDataType
+            this._properties.Add("x",
+                new XFAProperty()
+                {
+                    Name = "x",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            // measurementDataType
+            this._properties.Add("y",
+                new XFAProperty()
+                {
+                    Name = "y",
+                    Type = EnumXFAPropertyType.Property
+                }
+            );
+
+            this._properties.Add("desc",
+                new XFAProperty()
+                {
+                    Name = "desc",
+                    Type = EnumXFAPropertyType.StructuredProperty,
+                    Values = new List<IXFAPropertyValue>()
+                }
+            );
             this._properties.Add("extras",
                 new XFAProperty()
                 {
                     Name = "extras",
-                    Type = EnumXFAPropertyType.StructuredProperty,
-                    Values = new List<IXFAPropertyValue>()
-                }
-            );
-            this._properties.Add("occur",
-                new XFAProperty()
-                {
-                    Name = "occur",
-                    Type = EnumXFAPropertyType.StructuredProperty,
-                    Values = new List<IXFAPropertyValue>()
-                }
-            );
-            this._properties.Add("pageArea",
-                new XFAProperty()
-                {
-                    Name = "pageArea",
-                    Type = EnumXFAPropertyType.StructuredProperty,
-                    Values = new List<IXFAPropertyValue>()
-                }
-            );
-            this._properties.Add("pageSet",
-                new XFAProperty()
-                {
-                    Name = "pageSet",
                     Type = EnumXFAPropertyType.StructuredProperty,
                     Values = new List<IXFAPropertyValue>()
                 }

@@ -130,6 +130,7 @@ namespace XFAForms.FormProcessor
         public void Dispose()
         {
             // Cleanup goes here
+            GC.SuppressFinalize(this);
         }
     }
 }
