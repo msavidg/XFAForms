@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace XFAForms.XFAObject.XFAElements
 {
 
-    public partial class Lockdocument : XFABaseElement
+    public partial class Lockdocument : XFABaseElement, IXFAElement
     {
 
         // <!--An element that controls whether the document locks when it is signed.-->
@@ -12,19 +12,19 @@ namespace XFAForms.XFAObject.XFAElements
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
         private EnumXFAElementType _type = EnumXFAElementType.Content;
         
-        public new string Name
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        public new Dictionary<string, IXFAProperty> Properties
+        public Dictionary<string, IXFAProperty> Properties
         {
             get { return _properties; }
             set { _properties = value; }
         }
 
-        public new EnumXFAElementType Type
+        public EnumXFAElementType Type
         {
             get { return _type; }
             set { _type = value; }

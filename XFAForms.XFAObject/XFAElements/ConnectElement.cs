@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace XFAForms.XFAObject.XFAElements
 {
 
-    public partial class Connect : XFABaseElement
+    public partial class Connect : XFABaseElement, IXFAElement
     {
 
         // <!--An element that describes the relationship between its containing object and a connection to a web service, schema, or data description. Connections are defined outside the template in a separate packet with its own schema. See the XFA Connection Set Specification for more information.-->
@@ -12,19 +12,19 @@ namespace XFAForms.XFAObject.XFAElements
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
         private EnumXFAElementType _type = EnumXFAElementType.Content;
         
-        public new string Name
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        public new Dictionary<string, IXFAProperty> Properties
+        public Dictionary<string, IXFAProperty> Properties
         {
             get { return _properties; }
             set { _properties = value; }
         }
 
-        public new EnumXFAElementType Type
+        public EnumXFAElementType Type
         {
             get { return _type; }
             set { _type = value; }

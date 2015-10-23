@@ -48,8 +48,6 @@ namespace XFAForms.XFAObject.XFAElements
 
         EnumXFAElementType Type { get; set; }
 
-        List<String> Children { get; set; }
-
     }
 
     public interface IXFAProperty

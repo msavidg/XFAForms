@@ -3,7 +3,7 @@ using System.Collections.Generic;
 namespace XFAForms.XFAObject.XFAElements
 {
 
-    public partial class Decimal : XFABaseElement
+    public partial class Decimal : XFABaseElement, IXFAElement
     {
 
         // <!--A content type element that describes a single unit of data content representing a number with a fixed number of digits after the decimal.-->
@@ -12,19 +12,19 @@ namespace XFAForms.XFAObject.XFAElements
         private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();
         private EnumXFAElementType _type = EnumXFAElementType.Content;
         
-        public new string Name
+        public string Name
         {
             get { return _name; }
             set { _name = value; }
         }
 
-        public new Dictionary<string, IXFAProperty> Properties
+        public Dictionary<string, IXFAProperty> Properties
         {
             get { return _properties; }
             set { _properties = value; }
         }
 
-        public new EnumXFAElementType Type
+        public EnumXFAElementType Type
         {
             get { return _type; }
             set { _type = value; }

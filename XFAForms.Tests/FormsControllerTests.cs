@@ -602,7 +602,7 @@ namespace XFAForms.Tests
         {
 
             var webRequest = WebRequest.Create("http://" + Server + "/XFAForms.Web/api/Forms/ProcessForms");
-            webRequest.Timeout = 300000;
+            webRequest.Timeout = 600000;
             webRequest.Method = "POST";
             webRequest.ContentType = "application/x-protobuf";
             webRequest.Credentials = CredentialCache.DefaultNetworkCredentials;

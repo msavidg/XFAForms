@@ -58,6 +58,11 @@ namespace XFAForms.RelaxNG
 
             CreateCode(rngElements);
 
+            foreach (var r in rngElements)
+            {
+                Console.WriteLine("xfaElements.Add(\"" + r.Name + "\", new " + r.Name.FirstCharToUpper() + "Element());");
+            }
+
         }
 
         private static void ProcessDefineContent(RNGElement e, XElement rngDefine, XNamespace rng)
@@ -155,7 +160,7 @@ namespace XFAForms.RelaxNG
                 sb.AppendLine("namespace XFAForms.XFAObject.XFAElements");
                 sb.AppendLine("{");
                 sb.AppendLine("");
-                sb.AppendLine("    public partial class " + re.Name.FirstCharToUpper() + " : XFABaseElement");
+                sb.AppendLine("    public partial class " + re.Name.FirstCharToUpper() + " : XFABaseElement, IXFAElement");
                 sb.AppendLine("    {");
                 sb.AppendLine("");
                 sb.AppendLine($"        // {re.Comment}");
@@ -164,19 +169,19 @@ namespace XFAForms.RelaxNG
                 sb.AppendLine("        private Dictionary<string, IXFAProperty> _properties = new Dictionary<string, IXFAProperty>();");
                 sb.AppendLine("        private EnumXFAElementType _type = EnumXFAElementType.Content;");
                 sb.AppendLine("        ");
-                sb.AppendLine("        public new string Name");
+                sb.AppendLine("        public string Name");
                 sb.AppendLine("        {");
                 sb.AppendLine("            get { return _name; }");
                 sb.AppendLine("            set { _name = value; }");
                 sb.AppendLine("        }");
                 sb.AppendLine("");
-                sb.AppendLine("        public new Dictionary<string, IXFAProperty> Properties");
+                sb.AppendLine("        public Dictionary<string, IXFAProperty> Properties");
                 sb.AppendLine("        {");
                 sb.AppendLine("            get { return _properties; }");
                 sb.AppendLine("            set { _properties = value; }");
                 sb.AppendLine("        }");
                 sb.AppendLine("");
-                sb.AppendLine("        public new EnumXFAElementType Type");
+                sb.AppendLine("        public EnumXFAElementType Type");
                 sb.AppendLine("        {");
                 sb.AppendLine("            get { return _type; }");
                 sb.AppendLine("            set { _type = value; }");

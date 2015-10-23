@@ -5,11 +5,28 @@ using System.Dynamic;
 
 namespace XFAForms.XFAObject.XFAElements
 {
-    public class XFABaseElement : DynamicObject, IXFAElement
+    public abstract class XFABaseElement 
     {
-        public string Name { get; set; }
-        public Dictionary<string, IXFAProperty> Properties { get; set; }
-        public EnumXFAElementType Type { get; set; }
-        public List<string> Children { get; set; }
+        //private string _name;
+        //private Dictionary<string, IXFAProperty> _properties;
+        //private EnumXFAElementType _type;
+
+        //public virtual string Name
+        //{
+        //    get { return _name; }
+        //    set { _name = value; }
+        //}
+
+        //public virtual Dictionary<string, IXFAProperty> Properties
+        //{
+        //    get { return _properties; }
+        //    set { _properties = value; }
+        //}
+
+        //public virtual EnumXFAElementType Type
+        //{
+        //    get { return _type; }
+        //    set { _type = value; }
+        //}
     }
 }
