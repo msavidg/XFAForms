@@ -232,7 +232,7 @@ namespace XFAForms.XFAObject.DynamicObjects
 
             // Since template DOM is sparse we need to create a list for each element
 
-            foreach (var element in _elements.Elements().Where(e => e.HasAttributes && e.Attribute("name") != null))
+            foreach (var element in _elements.Elements().Where(e => e.HasAttributes && e.Attribute("name") != null)) //This should really be restricted to child elements that are in the current element's structured properties
                 yield return element.Attribute("name").Value;
 
             IXFAElement xfaElement = null;
