@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using XFAForms.XMLDataDOM.Interfaces;
+using XFAForms.XMLDataDom.Interfaces;
 
 namespace XFAForms.XMLDataDOM.Installers
 {

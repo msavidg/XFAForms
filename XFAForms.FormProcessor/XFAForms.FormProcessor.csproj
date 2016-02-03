@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XFAForms.FormProcessor</RootNamespace>
     <AssemblyName>XFAForms.FormProcessor</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,8 +39,35 @@
       <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core-log4net.3.3.0\lib\net45\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClearScript">
+      <HintPath>..\Libraries\ClearScript\ClearScript.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.6\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.pdfa, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.pdfa.5.5.6\lib\itextsharp.pdfa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.6\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xtra, Version=5.5.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xtra.5.5.6\lib\itextsharp.xtra.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,6 +84,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
+      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Name>XFAForms.BaseDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
+      <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
+      <Name>XFAForms.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
       <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
       <Name>XFAForms.ConfigDOM.Interfaces</Name>
@@ -72,9 +108,9 @@
       <Project>{104bb466-8420-4599-8b97-f791efc82163}</Project>
       <Name>XFAForms.DataDescriptionDOM.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.DataDOM.Interfaces\XFAForms.DataDOM.Interfaces.csproj">
+    <ProjectReference Include="..\XFAForms.DataDOM.Interfaces\XFAForms.XFADataDOM.Interfaces.csproj">
       <Project>{eef71c0c-3626-443b-b35d-73c060ecd72a}</Project>
-      <Name>XFAForms.DataDOM.Interfaces</Name>
+      <Name>XFAForms.XFADataDOM.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.FormDOM.Interfaces\XFAForms.FormDOM.Interfaces.csproj">
       <Project>{4a4ee402-00ba-4fc5-b7e1-3ed7a87d45cf}</Project>
@@ -88,6 +124,10 @@
       <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
       <Name>XFAForms.TemplateDOM.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004b2d94-a375-4d82-90a6-e254a3bd0c98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.XMLDataDom.Interfaces\XFAForms.XMLDataDOM.Interfaces.csproj">
       <Project>{1c751771-15c6-4eb7-8626-dbd3e48908fa}</Project>
       <Name>XFAForms.XMLDataDOM.Interfaces</Name>
@@ -98,6 +138,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

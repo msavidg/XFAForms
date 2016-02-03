@@ -1,7 +1,10 @@
-﻿namespace XFAForms.ConfigDOM.Interfaces
+﻿using System.Xml.Linq;
+using XFAForms.BaseDOM.Interfaces;
+
+namespace XFAForms.ConfigDOM.Interfaces
 {
-    public interface IConfigDOM
+    public interface IConfigDOM : IBaseDOM
     {
-         
+
     }
 }

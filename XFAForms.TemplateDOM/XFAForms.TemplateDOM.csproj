@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XFAForms.TemplateDOM</RootNamespace>
     <AssemblyName>XFAForms.TemplateDOM</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -38,8 +39,16 @@
       <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core-log4net.3.3.0\lib\net45\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,6 +65,7 @@
     <Compile Include="TemplateDOM.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,10 +77,25 @@
       <Project>{7e755f71-2bde-49d3-9743-4fd87bdf8bc1}</Project>
       <Name>XFAForms.BaseDOM</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
+      <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
+      <Name>XFAForms.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
       <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
       <Name>XFAForms.TemplateDOM.Interfaces</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004B2D94-A375-4D82-90A6-E254A3BD0C98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject\XFAForms.XFAObject.csproj">
+      <Project>{220bef6e-9051-4ecc-8085-5fb9a39977fd}</Project>
+      <Name>XFAForms.XFAObject</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

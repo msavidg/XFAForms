@@ -1,21 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
+using System.Xml.Linq;
 using Castle.Core.Logging;
-using XFAForms.DataDOM.Interfaces;
+using XFAForms.XFADataDOM.Interfaces;
+using XFAForms.XFAObject.DynamicObjects;
+using XFAForms.XFAObject.Interfaces;
 
-namespace XFAForms.DataDOM
+namespace XFAForms.XFADataDOM
 {
-    public class DataDOM : BaseDOM.BaseDOM, IXFADataDOM
+    public class XFADataDOM : BaseDOM.BaseDOM, IXFADataDOM
     {
         private readonly ILogger _logger;
 
-        public DataDOM(ILogger logger)
-            : base(logger)
+        private XDocument _formData;
+
+        public XFADataDOM(ILogger logger) : base(logger)
         {
+
             _logger = logger;
+
+        }
+
+        public void Initialize(IXFAObject xfaObject, XDocument formData)
+        {
+
+            _formData = formData;
+
+            xfaObject.record = new DynamicDataXml(formData.ToString());
+
         }
     }
 }

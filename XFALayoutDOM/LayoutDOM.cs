@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Castle.Core.Logging;
-using XFALayoutDOM.Interfaces;
+﻿using Castle.Core.Logging;
+using XFAForms.LayoutDOM.Interfaces;
 
-namespace XFAForms.XFALayoutDOM
+namespace XFAForms.LayoutDOM
 {
     public class LayoutDOM : BaseDOM.BaseDOM, ILayoutDOM
     {

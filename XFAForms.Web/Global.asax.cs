@@ -13,7 +13,7 @@ namespace XFAForms.Web
 
         public WebApiApplication()
         {
-            this._container = new WindsorContainer().Install(new DependencyConnventions());
+            this._container = new WindsorContainer().Install(new DependencyConventions());
             _container.AddFacility<LoggingFacility>(f => f.LogUsing(LoggerImplementation.Log4net).WithAppConfig());
         }
 

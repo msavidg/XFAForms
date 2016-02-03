@@ -1,8 +1,0 @@
-07/04/2015 12:55:56 DEBUG [XFAForms.FormEngine.FormEngine.Initialize(c:\Dev\XFAForms\XFAForms.FormEngine\FormEngine.cs:26)] Initialize! 
- 07/04/2015 12:59:33 DEBUG [XFAForms.FormEngine.FormEngine.Initialize(c:\Dev\XFAForms\XFAForms.FormEngine\FormEngine.cs:26)] Initialize! 
- 07/04/2015 12:59:33 DEBUG [XFAForms.FormProcessor.FormProcessor.ProcessForm(:0)] Form processed! 
- 07/04/2015 13:17:43 DEBUG [XFAForms.FormEngine.FormEngine.Initialize(c:\Dev\XFAForms\XFAForms.FormEngine\FormEngine.cs:26)] Initialize! 
- 07/04/2015 13:17:43 DEBUG [XFAForms.FormProcessor.FormProcessor.ProcessForm(:0)] Form processed! 
- 07/04/2015 13:17:45 DEBUG [XFAForms.FormEngine.FormEngine.Initialize(c:\Dev\XFAForms\XFAForms.FormEngine\FormEngine.cs:26)] Initialize! 
- 07/04/2015 13:17:45 DEBUG [XFAForms.FormProcessor.FormProcessor.ProcessForm(:0)] Form processed! 
- 

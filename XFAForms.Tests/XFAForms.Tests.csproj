@@ -8,11 +8,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XFAForms.Tests</RootNamespace>
     <AssemblyName>XFAForms.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,14 +49,20 @@
       <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ClearScript, Version=5.4.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ClearScript\ClearScript.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
@@ -68,27 +75,135 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="FormsControllerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DynamicXmlTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
+      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Name>XFAForms.BaseDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.BaseDOM\XFAForms.BaseDOM.csproj">
+      <Project>{7e755f71-2bde-49d3-9743-4fd87bdf8bc1}</Project>
+      <Name>XFAForms.BaseDOM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.Common\XFAForms.Common.csproj">
       <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
       <Name>XFAForms.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
+      <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
+      <Name>XFAForms.ConfigDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConfigDOM\XFAForms.ConfigDOM.csproj">
+      <Project>{23a75061-b30c-45aa-8692-a26143c66b6a}</Project>
+      <Name>XFAForms.ConfigDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionDataDOM.Interfaces.csproj">
+      <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
+      <Name>XFAForms.ConnectionDataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionDataDOM\XFAForms.ConnectionDataDOM.csproj">
+      <Project>{65329d96-a495-4aae-9614-c425b018cc18}</Project>
+      <Name>XFAForms.ConnectionDataDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionSetDOM.Interfaces\XFAForms.ConnectionSetDOM.Interfaces.csproj">
+      <Project>{45a9e5dc-ea36-4b40-b21f-4cc5e02779fa}</Project>
+      <Name>XFAForms.ConnectionSetDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.ConnectionSetDOM\XFAForms.ConnectionSetDOM.csproj">
+      <Project>{34b82bf0-ca25-4670-a742-c3d4b1a23d7d}</Project>
+      <Name>XFAForms.ConnectionSetDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDescriptionDOM.Interfaces\XFAForms.DataDescriptionDOM.Interfaces.csproj">
+      <Project>{104bb466-8420-4599-8b97-f791efc82163}</Project>
+      <Name>XFAForms.DataDescriptionDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDescriptionDOM\XFAForms.DataDescriptionDOM.csproj">
+      <Project>{07f7b26b-c48d-4893-ab9d-5b2877bdd747}</Project>
+      <Name>XFAForms.DataDescriptionDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDOM.Interfaces\XFAForms.XFADataDOM.Interfaces.csproj">
+      <Project>{eef71c0c-3626-443b-b35d-73c060ecd72a}</Project>
+      <Name>XFAForms.XFADataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.DataDOM\XFAForms.XFADataDOM.csproj">
+      <Project>{9552e780-f765-4c77-acca-7674f10e637d}</Project>
+      <Name>XFAForms.XFADataDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormDOM.Interfaces\XFAForms.FormDOM.Interfaces.csproj">
+      <Project>{4a4ee402-00ba-4fc5-b7e1-3ed7a87d45cf}</Project>
+      <Name>XFAForms.FormDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormDOM\XFAForms.FormDOM.csproj">
+      <Project>{b49c59c8-ddb0-4d09-add6-a2b3cded2f16}</Project>
+      <Name>XFAForms.FormDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormEngine\XFAForms.FormEngine.csproj">
+      <Project>{923fea4a-15ad-44ea-b549-4d80d7c8cf34}</Project>
+      <Name>XFAForms.FormEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormProcessor.Interfaces\XFAForms.FormProcessor.Interfaces.csproj">
+      <Project>{2d79adc0-ff2f-47ce-b151-a364d96ab07c}</Project>
+      <Name>XFAForms.FormProcessor.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.FormProcessor\XFAForms.FormProcessor.csproj">
+      <Project>{ab9b52eb-9701-4cbb-a08c-3d72b9de5d32}</Project>
+      <Name>XFAForms.FormProcessor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.TemplateDOM.Interfaces\XFAForms.TemplateDOM.Interfaces.csproj">
+      <Project>{26cde3bc-67d7-4a41-bd18-d32635a18b82}</Project>
+      <Name>XFAForms.TemplateDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.TemplateDOM\XFAForms.TemplateDOM.csproj">
+      <Project>{69ec4d4f-35bd-466f-ad4f-e288515329fe}</Project>
+      <Name>XFAForms.TemplateDOM</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XFAForms.Web\XFAForms.Web.csproj">
       <Project>{D42C9951-18B9-4E5B-AA4B-3D3BF941E730}</Project>
       <Name>XFAForms.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject.Interfaces\XFAForms.XFAObject.Interfaces.csproj">
+      <Project>{004b2d94-a375-4d82-90a6-e254a3bd0c98}</Project>
+      <Name>XFAForms.XFAObject.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XFAObject\XFAForms.XFAObject.csproj">
+      <Project>{220bef6e-9051-4ecc-8085-5fb9a39977fd}</Project>
+      <Name>XFAForms.XFAObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XMLDataDom.Interfaces\XFAForms.XMLDataDOM.Interfaces.csproj">
+      <Project>{1c751771-15c6-4eb7-8626-dbd3e48908fa}</Project>
+      <Name>XFAForms.XMLDataDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFAForms.XMLDataDom\XFAForms.XMLDataDOM.csproj">
+      <Project>{6256bbce-f8b9-4b79-b22e-b8fa4c1d9d7d}</Project>
+      <Name>XFAForms.XMLDataDOM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFALayoutDOM.Interfaces\XFAForms.LayoutDOM.Interfaces.csproj">
+      <Project>{d7960677-cc60-4a03-ae00-10550178a6c4}</Project>
+      <Name>XFAForms.LayoutDOM.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XFALayoutDOM\XFAForms.LayoutDOM.csproj">
+      <Project>{03e69daa-553f-4364-aac4-b3242979adc4}</Project>
+      <Name>XFAForms.LayoutDOM</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +212,10 @@
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

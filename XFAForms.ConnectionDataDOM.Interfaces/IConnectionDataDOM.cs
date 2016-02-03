@@ -1,7 +1,9 @@
-﻿namespace XFAForms.ConnectionDataDOM.Interfaces
+﻿using XFAForms.BaseDOM.Interfaces;
+
+namespace XFAForms.ConnectionDataDOM.Interfaces
 {
-    public interface IConnectionDataDOM
+    public interface IConnectionDataDOM : IBaseDOM
     {
-         
+
     }
 }
