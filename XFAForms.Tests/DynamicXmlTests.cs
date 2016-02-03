@@ -36,7 +36,13 @@ namespace XFAForms.Tests
                                     new XAttribute("name","form1"),
                                     new XAttribute("layout","tb"),
                                     new XAttribute("locale","en_US"),
-                                    new XAttribute("restoreState","auto")
+                                    new XAttribute("restoreState","auto"),
+                                    new XElement("pageSet",
+                                        new XElement("pageArea", new object []
+                                        {
+                                            new XAttribute("name", "page1")
+                                        })
+                                    ),
                                 })),
                             new XElement(xci + "config"),
                             new XElement(xfa_locale_set + "localeSet"),
@@ -53,15 +59,13 @@ namespace XFAForms.Tests
         [TestMethod]
         public void Basic()
         {
-
             dynamic dtx = new DynamicTemplateXml(sample.Descendants().First(d => d.Name.LocalName == "template").ToString());
-
             IEnumerable<string> s = dtx.GetDynamicMemberNames();
-
             Assert.IsTrue(s.Contains("form1"));
 
-            var a = dtx.form1;
-
+            dynamic a = dtx.form1.pageSet;
+            s = a.GetDynamicMemberNames();
+            Assert.IsTrue(s.Contains("pageArea"));
         }
     }
 }
