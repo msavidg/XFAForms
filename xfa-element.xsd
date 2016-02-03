@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:simpleType name="anchorType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="topLeft"/>
+            <xs:enumeration value="topCenter"/>
+            <xs:enumeration value="topRight"/>
+            <xs:enumeration value="middleLeft"/>
+            <xs:enumeration value="middleCenter"/>
+            <xs:enumeration value="middleRight"/>
+            <xs:enumeration value="bottomLeft"/>
+            <xs:enumeration value="bottomCenter"/>
+            <xs:enumeration value="bottomRight"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="units">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="in"/>
+            <xs:enumeration value="cm"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="presence">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="visible"/>
+            <xs:enumeration value="invisible"/>
+            <xs:enumeration value="hidden"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name="xfa">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="field">
+                    <xs:complexType>
+                        <xs:attribute name="access"/>
+                        <xs:attribute name="anchorType" type="anchorType"/>
+                        <xs:attribute name="h"/>
+                        <xs:attribute name="id"/>
+                        <xs:attribute name="maxH"/>
+                        <xs:attribute name="maxW"/>
+                        <xs:attribute name="minH"/>
+                        <xs:attribute name="minW"/>
+                        <xs:attribute name="name"/>
+                        <xs:attribute name="presence" type="presence"/>
+                        <xs:attribute name="rotate"/>
+                        <xs:attribute name="use"/>
+                        <xs:attribute name="w"/>
+                        <xs:attribute name="x"/>
+                        <xs:attribute name="y"/>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="draw">
+                    <xs:complexType>
+                        <xs:attribute name="anchorType" type="anchorType"/>
+                        <xs:attribute name="h" type="xs:string"/>
+                        <xs:attribute name="id"/>
+                        <xs:attribute name="maxH"/>
+                        <xs:attribute name="maxW"/>
+                        <xs:attribute name="minH"/>
+                        <xs:attribute name="minW"/>
+                        <xs:attribute name="name"/>
+                        <xs:attribute name="presence" type="presence"/>
+                        <xs:attribute name="rotate"/>
+                        <xs:attribute name="use"/>
+                        <xs:attribute name="w"/>
+                        <xs:attribute name="x"/>
+                        <xs:attribute name="y"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
