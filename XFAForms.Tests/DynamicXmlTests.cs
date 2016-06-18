@@ -63,7 +63,7 @@ namespace XFAForms.Tests
             IEnumerable<string> s = dtx.GetDynamicMemberNames();
             Assert.IsTrue(s.Contains("form1"));
 
-            dynamic a = dtx.form1.pageSet;
+            dynamic a = dtx.form1;
             s = a.GetDynamicMemberNames();
             Assert.IsTrue(s.Contains("pageArea"));
         }
