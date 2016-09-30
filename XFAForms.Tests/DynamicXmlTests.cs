@@ -20,7 +20,7 @@ namespace XFAForms.Tests
 
         private XDocument sample = null;
 
-        [TestInitialize]
+        //[TestInitialize]
         public void Setup()
         {
 
@@ -56,7 +56,7 @@ namespace XFAForms.Tests
 
         }
 
-        [TestMethod]
+        //[TestMethod]
         public void Basic()
         {
             dynamic dtx = new DynamicTemplateXml(sample.Descendants().First(d => d.Name.LocalName == "template").ToString());
