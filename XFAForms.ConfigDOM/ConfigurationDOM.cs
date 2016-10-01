@@ -8,14 +8,14 @@ using Castle.Core.Logging;
 using XFAForms.BaseDOM.Interfaces;
 using XFAForms.ConfigDOM.Interfaces;
 
-namespace XFAForms.ConfigDOM
+namespace XFAForms.ConfigurationDOM
 {
-    public class ConfigDOM : BaseDOM.BaseDOM, IConfigDOM
+    public class ConfigurationDOM : BaseDOM.BaseDOM, IConfigurationDOM
     {
 
         private readonly ILogger _logger;
 
-        public ConfigDOM(ILogger logger)
+        public ConfigurationDOM(ILogger logger)
             : base(logger)
         {
             _logger = logger;

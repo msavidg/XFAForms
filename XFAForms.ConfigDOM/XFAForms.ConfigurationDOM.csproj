@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65329D96-A495-4AAE-9614-C425B018CC18}</ProjectGuid>
+    <ProjectGuid>{23A75061-B30C-45AA-8692-A26143C66B6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XFAForms.ConnectionDataDOM</RootNamespace>
-    <AssemblyName>XFAForms.ConnectionDataDOM</AssemblyName>
+    <RootNamespace>XFAForms.ConfigurationDOM</RootNamespace>
+    <AssemblyName>XFAForms.ConfigurationDOM</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -60,27 +60,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionSetDataDOM.cs" />
-    <Compile Include="Installers\XFAFormsConnectionSetDataDOMInstaller.cs" />
+    <Compile Include="ConfigurationDOM.cs" />
+    <Compile Include="Installers\XFAFormsConfigurationDOMInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
-      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Project>{61F02DD6-FB1C-43C2-A5D8-210215F185BD}</Project>
       <Name>XFAForms.BaseDOM.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.BaseDOM\XFAForms.BaseDOM.csproj">
       <Project>{7e755f71-2bde-49d3-9743-4fd87bdf8bc1}</Project>
       <Name>XFAForms.BaseDOM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionSetDataDOM.Interfaces.csproj">
-      <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
-      <Name>XFAForms.ConnectionSetDataDOM.Interfaces</Name>
+    <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigurationDOM.Interfaces.csproj">
+      <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
+      <Name>XFAForms.ConfigurationDOM.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

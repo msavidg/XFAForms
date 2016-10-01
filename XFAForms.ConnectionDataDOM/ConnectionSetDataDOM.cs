@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using Castle.Core.Logging;
 using XFAForms.ConnectionDataDOM.Interfaces;
 
-namespace XFAForms.ConnectionDataDOM
+namespace XFAForms.ConnectionSetDataDOM
 {
-    public class ConnectionDataDOM : BaseDOM.BaseDOM, IConnectionDataDOM
+    public class ConnectionSetDataDOM : BaseDOM.BaseDOM, IConnectionSetDataDOM
     {
         private readonly ILogger _logger;
 
-        public ConnectionDataDOM(ILogger logger)
+        public ConnectionSetDataDOM(ILogger logger)
             : base(logger)
         {
             _logger = logger;

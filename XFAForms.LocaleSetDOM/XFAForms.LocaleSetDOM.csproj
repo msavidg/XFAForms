@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{65329D96-A495-4AAE-9614-C425B018CC18}</ProjectGuid>
+    <ProjectGuid>{6E67404A-ACBC-41E1-B9C1-22287C761BA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XFAForms.ConnectionDataDOM</RootNamespace>
-    <AssemblyName>XFAForms.ConnectionDataDOM</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>XFAForms.LocaleSetDOM</RootNamespace>
+    <AssemblyName>XFAForms.LocaleSetDOM</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,29 +56,29 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionSetDataDOM.cs" />
-    <Compile Include="Installers\XFAFormsConnectionSetDataDOMInstaller.cs" />
+    <Compile Include="Installers\XFAFormsLocaleSetDOMInstaller.cs" />
+    <Compile Include="LocaleSetDOM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XFAForms.BaseDOM.Interfaces\XFAForms.BaseDOM.Interfaces.csproj">
-      <Project>{61f02dd6-fb1c-43c2-a5d8-210215f185bd}</Project>
+      <Project>{61F02DD6-FB1C-43C2-A5D8-210215F185BD}</Project>
       <Name>XFAForms.BaseDOM.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.BaseDOM\XFAForms.BaseDOM.csproj">
       <Project>{7e755f71-2bde-49d3-9743-4fd87bdf8bc1}</Project>
       <Name>XFAForms.BaseDOM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionSetDataDOM.Interfaces.csproj">
-      <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
-      <Name>XFAForms.ConnectionSetDataDOM.Interfaces</Name>
+    <ProjectReference Include="..\XFAForms.LocaleSetDOM.Interfaces\XFAForms.LocaleSetDOM.Interfaces\XFAForms.LocaleSetDOM.Interfaces.csproj">
+      <Project>{e35d3677-d303-4a54-ad9a-527f526c3abc}</Project>
+      <Name>XFAForms.LocaleSetDOM.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -669,8 +669,8 @@ namespace XFAForms.Tests
             ConsoleLogger consoleLogger = new ConsoleLogger();
 
             XFAObject.XFAObject xfaObject = new XFAObject.XFAObject();
-            ConfigDOM.ConfigDOM configDom = new ConfigDOM.ConfigDOM(consoleLogger);
-            ConnectionDataDOM.ConnectionDataDOM connectionDataDom = new ConnectionDataDOM.ConnectionDataDOM(consoleLogger);
+            ConfigurationDOM.ConfigurationDOM configDom = new ConfigurationDOM.ConfigurationDOM(consoleLogger);
+            ConnectionSetDataDOM.ConnectionSetDataDOM connectionDataDom = new ConnectionSetDataDOM.ConnectionSetDataDOM(consoleLogger);
             ConnectionSetDOM.ConnectionSetDOM connectionSetDom = new ConnectionSetDOM.ConnectionSetDOM(consoleLogger);
             DataDescriptionDOM.DataDescriptionDOM dataDescriptionDom = new DataDescriptionDOM.DataDescriptionDOM(consoleLogger);
             FormDOM.FormDOM formDom = new FormDOM.FormDOM(consoleLogger);

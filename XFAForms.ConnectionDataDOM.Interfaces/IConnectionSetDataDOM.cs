@@ -2,7 +2,7 @@
 
 namespace XFAForms.ConnectionDataDOM.Interfaces
 {
-    public interface IConnectionDataDOM : IBaseDOM
+    public interface IConnectionSetDataDOM : IBaseDOM
     {
 
     }

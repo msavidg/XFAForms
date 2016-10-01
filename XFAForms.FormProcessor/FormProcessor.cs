@@ -33,8 +33,8 @@ namespace XFAForms.FormProcessor
         private readonly ILogger _logger;
         private readonly V8ScriptEngine _engine;
         private readonly IXFAObject _xfaObject;
-        private readonly IConfigDOM _configDom;
-        private readonly IConnectionDataDOM _connectionDataDom;
+        private readonly IConfigurationDOM _configDom;
+        private readonly IConnectionSetDataDOM _connectionDataDom;
         private readonly IConnectionSetDOM _connectionSetDom;
         private readonly IDataDescriptionDOM _dataDescriptionDom;
         private readonly IFormDOM _formDom;
@@ -43,7 +43,7 @@ namespace XFAForms.FormProcessor
         private readonly IXFADataDOM _xfaDataDom;
         private readonly IXMLDataDOM _xmlDataDom;
 
-        public FormProcessor(ILogger logger, V8ScriptEngine engine, IXFAObject xfaObject, IConfigDOM configDom, IConnectionDataDOM connectionDataDom, IConnectionSetDOM connectionSetDom, IDataDescriptionDOM dataDescriptionDom, IFormDOM formDom, ILayoutDOM layoutDom, ITemplateDOM templateDom, IXFADataDOM xfaDataDom, IXMLDataDOM xmlDataDom)
+        public FormProcessor(ILogger logger, V8ScriptEngine engine, IXFAObject xfaObject, IConfigurationDOM configDom, IConnectionSetDataDOM connectionDataDom, IConnectionSetDOM connectionSetDom, IDataDescriptionDOM dataDescriptionDom, IFormDOM formDom, ILayoutDOM layoutDom, ITemplateDOM templateDom, IXFADataDOM xfaDataDom, IXMLDataDOM xmlDataDom)
         {
 
             _logger = logger;

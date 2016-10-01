@@ -3,7 +3,7 @@ using XFAForms.BaseDOM.Interfaces;
 
 namespace XFAForms.ConfigDOM.Interfaces
 {
-    public interface IConfigDOM : IBaseDOM
+    public interface IConfigurationDOM : IBaseDOM
     {
 
     }

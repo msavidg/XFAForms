@@ -109,17 +109,17 @@
       <Project>{5fa1fde4-5108-46c5-b3f5-b11c56ea5873}</Project>
       <Name>XFAForms.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigDOM.Interfaces.csproj">
+    <ProjectReference Include="..\XFAForms.ConfigDOM.Interfaces\XFAForms.ConfigurationDOM.Interfaces.csproj">
       <Project>{07a4c9ae-107b-47a2-aa8a-ba6e4b4b1430}</Project>
-      <Name>XFAForms.ConfigDOM.Interfaces</Name>
+      <Name>XFAForms.ConfigurationDOM.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConfigDOM\XFAForms.ConfigDOM.csproj">
+    <ProjectReference Include="..\XFAForms.ConfigDOM\XFAForms.ConfigurationDOM.csproj">
       <Project>{23a75061-b30c-45aa-8692-a26143c66b6a}</Project>
-      <Name>XFAForms.ConfigDOM</Name>
+      <Name>XFAForms.ConfigurationDOM</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionDataDOM.Interfaces.csproj">
+    <ProjectReference Include="..\XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionSetDataDOM.Interfaces.csproj">
       <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
-      <Name>XFAForms.ConnectionDataDOM.Interfaces</Name>
+      <Name>XFAForms.ConnectionSetDataDOM.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.ConnectionDataDOM\XFAForms.ConnectionDataDOM.csproj">
       <Project>{65329d96-a495-4aae-9614-c425b018cc18}</Project>

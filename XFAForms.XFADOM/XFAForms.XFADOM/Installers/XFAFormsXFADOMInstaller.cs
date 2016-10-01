@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using XFAForms.ConfigDOM.Interfaces;
+using XFAForms.XFADOM.Interfaces;
 
-namespace XFAForms.ConfigDOM.Installers
+namespace XFAForms.XFADOM.Installers
 {
-    public class XFAFormsConfigDOMInstaller : IWindsorInstaller
+    public class XFAFormsXFADOMInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IConfigDOM>().ImplementedBy<ConfigDOM>().Configuration().LifestylePerWebRequest());
+            container.Register(Component.For<IXFADOM>().ImplementedBy<XFADOM>().Configuration().LifestylePerWebRequest());
         }
     }
 }

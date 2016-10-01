@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using XFAForms.ConnectionDataDOM.Interfaces;
+using XFAForms.SourceSetDOM.Interfaces;
 
-namespace XFAForms.ConnectionDataDOM.Installers
+namespace XFAForms.SourceSetDOM.Installers
 {
-    public class XFAFormsConnectionDataDOMInstaller : IWindsorInstaller
+    public class XFAFormsSourceSetDOMInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IConnectionDataDOM>().ImplementedBy<ConnectionDataDOM>().Configuration().LifestylePerWebRequest());
+            container.Register(Component.For<ISourceSetDOM>().ImplementedBy<SourceSetDOM>().Configuration().LifestylePerWebRequest());
         }
     }
 }
