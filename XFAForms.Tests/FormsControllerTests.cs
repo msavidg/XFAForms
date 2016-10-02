@@ -668,20 +668,7 @@ namespace XFAForms.Tests
         {
             ConsoleLogger consoleLogger = new ConsoleLogger();
 
-            XFAObject.XFAObject xfaObject = new XFAObject.XFAObject();
-            ConfigurationDOM.ConfigurationDOM configDom = new ConfigurationDOM.ConfigurationDOM(consoleLogger);
-            ConnectionSetDataDOM.ConnectionSetDataDOM connectionDataDom = new ConnectionSetDataDOM.ConnectionSetDataDOM(consoleLogger);
-            ConnectionSetDOM.ConnectionSetDOM connectionSetDom = new ConnectionSetDOM.ConnectionSetDOM(consoleLogger);
-            DataDescriptionDOM.DataDescriptionDOM dataDescriptionDom = new DataDescriptionDOM.DataDescriptionDOM(consoleLogger);
-            FormDOM.FormDOM formDom = new FormDOM.FormDOM(consoleLogger);
-            LayoutDOM.LayoutDOM layoutDom = new LayoutDOM.LayoutDOM(consoleLogger);
-            TemplateDOM.TemplateDOM templateDom = new TemplateDOM.TemplateDOM(consoleLogger);
-            XFADataDOM.XFADataDOM xfaDataDom = new XFADataDOM.XFADataDOM(consoleLogger);
-            XMLDataDOM.XMLDataDOM xmlDataDom = new XMLDataDOM.XMLDataDOM(consoleLogger);
-
-            V8ScriptEngine engine = new V8ScriptEngine();
-
-            FormProcessor.FormProcessor formProcessor = new FormProcessor.FormProcessor(consoleLogger, engine, xfaObject, configDom, connectionDataDom, connectionSetDom, dataDescriptionDom, formDom, layoutDom, templateDom, xfaDataDom, xmlDataDom);
+            FormProcessor.FormProcessor formProcessor = new FormProcessor.FormProcessor(consoleLogger);
 
             FormEngine.FormEngine formEngine = new FormEngine.FormEngine(consoleLogger, formProcessor);
 
@@ -714,10 +701,6 @@ namespace XFAForms.Tests
                 var errors = jobResponse.Forms.Where(f => f.HasError == true).ToList();
 
             }
-
-            engine.Dispose();
-            engine = null;
-
         }
     }
 }
