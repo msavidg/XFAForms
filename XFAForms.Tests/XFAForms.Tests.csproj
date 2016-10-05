@@ -121,9 +121,9 @@
       <Project>{cb686478-1df2-4baf-ae91-48f2d6937d18}</Project>
       <Name>XFAForms.ConnectionSetDataDOM.Interfaces</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XFAForms.ConnectionDataDOM\XFAForms.ConnectionDataDOM.csproj">
+    <ProjectReference Include="..\XFAForms.ConnectionDataDOM\XFAForms.ConnectionSetDataDOM.csproj">
       <Project>{65329d96-a495-4aae-9614-c425b018cc18}</Project>
-      <Name>XFAForms.ConnectionDataDOM</Name>
+      <Name>XFAForms.ConnectionSetDataDOM</Name>
     </ProjectReference>
     <ProjectReference Include="..\XFAForms.ConnectionSetDOM.Interfaces\XFAForms.ConnectionSetDOM.Interfaces.csproj">
       <Project>{45a9e5dc-ea36-4b40-b21f-4cc5e02779fa}</Project>

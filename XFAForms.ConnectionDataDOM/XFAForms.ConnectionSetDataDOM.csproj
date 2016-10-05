@@ -7,8 +7,8 @@
     <ProjectGuid>{65329D96-A495-4AAE-9614-C425B018CC18}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>XFAForms.ConnectionDataDOM</RootNamespace>
-    <AssemblyName>XFAForms.ConnectionDataDOM</AssemblyName>
+    <RootNamespace>XFAForms.ConnectionSetDataDOM</RootNamespace>
+    <AssemblyName>XFAForms.ConnectionSetDataDOM</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

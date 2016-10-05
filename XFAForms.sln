@@ -58,7 +58,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Implementations", "Implemen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.ConnectionSetDataDOM.Interfaces", "XFAForms.ConnectionDataDOM.Interfaces\XFAForms.ConnectionSetDataDOM.Interfaces.csproj", "{CB686478-1DF2-4BAF-AE91-48F2D6937D18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.ConnectionDataDOM", "XFAForms.ConnectionDataDOM\XFAForms.ConnectionDataDOM.csproj", "{65329D96-A495-4AAE-9614-C425B018CC18}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.ConnectionSetDataDOM", "XFAForms.ConnectionDataDOM\XFAForms.ConnectionSetDataDOM.csproj", "{65329D96-A495-4AAE-9614-C425B018CC18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XFAForms.ConnectionSetDOM.Interfaces", "XFAForms.ConnectionSetDOM.Interfaces\XFAForms.ConnectionSetDOM.Interfaces.csproj", "{45A9E5DC-EA36-4B40-B21F-4CC5E02779FA}"
 EndProject

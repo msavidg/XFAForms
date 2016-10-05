@@ -1,7 +1,6 @@
-﻿using System.Xml.Linq;
-using XFAForms.BaseDOM.Interfaces;
+﻿using XFAForms.BaseDOM.Interfaces;
 
-namespace XFAForms.ConfigDOM.Interfaces
+namespace XFAForms.ConfigurationDOM.Interfaces
 {
     public interface IConfigurationDOM : IBaseDOM
     {

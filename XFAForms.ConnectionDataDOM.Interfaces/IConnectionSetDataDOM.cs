@@ -1,6 +1,6 @@
 ﻿using XFAForms.BaseDOM.Interfaces;
 
-namespace XFAForms.ConnectionDataDOM.Interfaces
+namespace XFAForms.ConnectionSetDataDOM.Interfaces
 {
     public interface IConnectionSetDataDOM : IBaseDOM
     {

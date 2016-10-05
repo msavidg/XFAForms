@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Castle.Core.Logging;
 using XFAForms.BaseDOM.Interfaces;
-using XFAForms.ConfigDOM.Interfaces;
+using XFAForms.ConfigurationDOM.Interfaces;
 
 namespace XFAForms.ConfigurationDOM
 {

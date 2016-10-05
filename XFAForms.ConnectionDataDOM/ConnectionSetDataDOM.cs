@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Castle.Core.Logging;
-using XFAForms.ConnectionDataDOM.Interfaces;
+using XFAForms.ConnectionSetDataDOM.Interfaces;
 
 namespace XFAForms.ConnectionSetDataDOM
 {
