@@ -17,15 +17,19 @@ namespace XFAForms.FormProcessor.Installers
         {
 
             container.Install(FromAssembly.Named("XFAForms.XFAObject"));
+
             container.Install(FromAssembly.Named("XFAForms.BaseDOM"));
-            container.Install(FromAssembly.Named("XFAForms.ConfigDOM"));
-            container.Install(FromAssembly.Named("XFAForms.ConnectionDataDOM"));
+            container.Install(FromAssembly.Named("XFAForms.ConfigurationDOM"));
+            container.Install(FromAssembly.Named("XFAForms.ConnectionSetDataDOM"));
             container.Install(FromAssembly.Named("XFAForms.ConnectionSetDOM"));
             container.Install(FromAssembly.Named("XFAForms.DataDescriptionDOM"));
             container.Install(FromAssembly.Named("XFAForms.FormDOM"));
             container.Install(FromAssembly.Named("XFAForms.LayoutDOM"));
+            container.Install(FromAssembly.Named("XFAForms.LocaleSetDOM"));
+            container.Install(FromAssembly.Named("XFAForms.SourceSetDOM"));
             container.Install(FromAssembly.Named("XFAForms.TemplateDOM"));
             container.Install(FromAssembly.Named("XFAForms.XFADataDOM"));
+            container.Install(FromAssembly.Named("XFAForms.XFADOM"));
             container.Install(FromAssembly.Named("XFAForms.XMLDataDOM"));
 
             container.Register(Component.For<IFormProcessor>().ImplementedBy<FormProcessor>().Configuration().LifestylePerWebRequest());

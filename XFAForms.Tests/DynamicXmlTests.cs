@@ -12,11 +12,11 @@ namespace XFAForms.Tests
     public class DynamicXmlTests
     {
 
-        XNamespace xdp = "http://ns.adobe.com/xdp/";
-        XNamespace xfa_template = "http://www.xfa.org/schema/xfa-template/2.6/";
-        XNamespace xci = "http://www.xfa.org/schema/xci/2.6/";
-        XNamespace xfa_locale_set = "http://www.xfa.org/schema/xfa-locale-set/2.6/";
-        XNamespace x = "adobe:ns:meta/";
+        private readonly XNamespace _xdp = "http://ns.adobe.com/xdp/";
+        private readonly XNamespace _xfaTemplate = "http://www.xfa.org/schema/xfa-template/2.6/";
+        private readonly XNamespace _xci = "http://www.xfa.org/schema/xci/2.6/";
+        private readonly XNamespace _xfaLocaleSet = "http://www.xfa.org/schema/xfa-locale-set/2.6/";
+        private readonly XNamespace _x = "adobe:ns:meta/";
 
         private XDocument sample = null;
 
@@ -25,12 +25,12 @@ namespace XFAForms.Tests
         {
 
             sample = new XDocument(
-                new XElement(xdp + "xdp", new object[]
+                new XElement(_xdp + "xdp", new object[]
                     {
-                        new XAttribute(XNamespace.Xmlns + "xdp", xdp.ToString()),
+                        new XAttribute(XNamespace.Xmlns + "xdp", _xdp.ToString()),
                         new XAttribute("timeStamp", DateTime.Now.ToString("O")),
                         new XAttribute("uuid", Guid.NewGuid()),
-                            new XElement(xfa_template + "template",
+                            new XElement(_xfaTemplate + "template",
                                 new XElement("subform", new object[]
                                 {
                                     new XAttribute("name","form1"),
@@ -44,12 +44,12 @@ namespace XFAForms.Tests
                                         })
                                     ),
                                 })),
-                            new XElement(xci + "config"),
-                            new XElement(xfa_locale_set + "localeSet"),
-                            new XElement(x+"xmpmeta", new object []
+                            new XElement(_xci + "config"),
+                            new XElement(_xfaLocaleSet + "localeSet"),
+                            new XElement(_x+"xmpmeta", new object []
                             {
-                                new XAttribute(XNamespace.Xmlns + "x", x.ToString()),
-                                new XAttribute(x + "xmptk", "Adobe XMP Core 4.2.1-c041 52.337767, 2008/04/13-15:41:00        ")
+                                new XAttribute(XNamespace.Xmlns + "x", _x.ToString()),
+                                new XAttribute(_x + "xmptk", "Adobe XMP Core 4.2.1-c041 52.337767, 2008/04/13-15:41:00        ")
                             }),
                     })
             );

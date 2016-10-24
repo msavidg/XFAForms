@@ -170,7 +170,8 @@ namespace XFAForms.XFAObject.DynamicObjects
             // Since template DOM is sparse we need to create a list for each element
             // If we have it in the XML, return the value of the attribute
             // If we don't have it in the XML, create it, add it to Attributes collection
-            //var attr = _elements[0].Attribute(XName.Get(binder.Name));
+
+            // var attr = _elements[0].Attribute(XName.Get(binder.Name));
 
             IXFAElement xfaElement = xfaElements[_elements[0].Name.LocalName];
 
